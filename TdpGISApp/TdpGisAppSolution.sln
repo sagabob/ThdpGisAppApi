@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SeedData", "SeedData", "{69
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Configuration.Mongodb.SeedData", "TdpGisApi.Configuration.Mongodb.SeedData\TdpGisApi.Configuration.Mongodb.SeedData.csproj", "{610E86C6-6AE6-4E1D-85D0-38B829273A03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdpGisApi.Configuration.Tests", "TdpGisApi.Configuration.Tests\TdpGisApi.Configuration.Tests.csproj", "{7C175B5E-D602-4224-9A46-291A597BC5A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdpGisApi.Application.Tests", "TdpGisApi.Application.Tests\TdpGisApi.Application.Tests.csproj", "{A1C80269-6917-4402-8BF6-60E09E0EF736}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,14 @@ Global
 		{610E86C6-6AE6-4E1D-85D0-38B829273A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{610E86C6-6AE6-4E1D-85D0-38B829273A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{610E86C6-6AE6-4E1D-85D0-38B829273A03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C175B5E-D602-4224-9A46-291A597BC5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C175B5E-D602-4224-9A46-291A597BC5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C175B5E-D602-4224-9A46-291A597BC5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C175B5E-D602-4224-9A46-291A597BC5A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C80269-6917-4402-8BF6-60E09E0EF736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C80269-6917-4402-8BF6-60E09E0EF736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C80269-6917-4402-8BF6-60E09E0EF736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C80269-6917-4402-8BF6-60E09E0EF736}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +73,8 @@ Global
 		{5EB6A7DB-6831-44EE-A24E-3C24BEDFFE63} = {8C980B20-2A38-4E57-AA3A-0E708B896E31}
 		{696FA11C-90FF-47F1-A480-4E4C4659F2B5} = {8C980B20-2A38-4E57-AA3A-0E708B896E31}
 		{610E86C6-6AE6-4E1D-85D0-38B829273A03} = {696FA11C-90FF-47F1-A480-4E4C4659F2B5}
+		{7C175B5E-D602-4224-9A46-291A597BC5A5} = {8C980B20-2A38-4E57-AA3A-0E708B896E31}
+		{A1C80269-6917-4402-8BF6-60E09E0EF736} = {8C980B20-2A38-4E57-AA3A-0E708B896E31}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C8BC0CE-76C8-49AB-B84F-4AD5326EB48B}
