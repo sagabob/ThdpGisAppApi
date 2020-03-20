@@ -9,11 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Configuration", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Configuration.Mongodb", "TdpGisApi.Configuration.Mongodb\TdpGisApi.Configuration.Mongodb.csproj", "{855C4939-72C9-406B-8D23-664ECE301436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdpGisApi.Services", "TdpGisApi.Services\TdpGisApi.Services.csproj", "{902DAA69-1016-42D8-9D3E-DC9B08A671ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Services", "TdpGisApi.Services\TdpGisApi.Services.csproj", "{902DAA69-1016-42D8-9D3E-DC9B08A671ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdpGisApi.Infrastructure.Mongodb", "TdpGisApi.Infrastructure.Mongodb\TdpGisApi.Infrastructure.Mongodb.csproj", "{5A9E2A08-8B75-423D-9132-FACDDC38B103}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Infrastructure.Mongodb", "TdpGisApi.Infrastructure.Mongodb\TdpGisApi.Infrastructure.Mongodb.csproj", "{5A9E2A08-8B75-423D-9132-FACDDC38B103}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdpGisApi.Application", "TdpGisApi.Application\TdpGisApi.Application.csproj", "{5EB6A7DB-6831-44EE-A24E-3C24BEDFFE63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Application", "TdpGisApi.Application\TdpGisApi.Application.csproj", "{5EB6A7DB-6831-44EE-A24E-3C24BEDFFE63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SeedData", "SeedData", "{696FA11C-90FF-47F1-A480-4E4C4659F2B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Configuration.Mongodb.SeedData", "TdpGisApi.Configuration.Mongodb.SeedData\TdpGisApi.Configuration.Mongodb.SeedData.csproj", "{610E86C6-6AE6-4E1D-85D0-38B829273A03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,10 @@ Global
 		{5EB6A7DB-6831-44EE-A24E-3C24BEDFFE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EB6A7DB-6831-44EE-A24E-3C24BEDFFE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EB6A7DB-6831-44EE-A24E-3C24BEDFFE63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610E86C6-6AE6-4E1D-85D0-38B829273A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610E86C6-6AE6-4E1D-85D0-38B829273A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610E86C6-6AE6-4E1D-85D0-38B829273A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610E86C6-6AE6-4E1D-85D0-38B829273A03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +59,8 @@ Global
 		{902DAA69-1016-42D8-9D3E-DC9B08A671ED} = {8C980B20-2A38-4E57-AA3A-0E708B896E31}
 		{5A9E2A08-8B75-423D-9132-FACDDC38B103} = {8C980B20-2A38-4E57-AA3A-0E708B896E31}
 		{5EB6A7DB-6831-44EE-A24E-3C24BEDFFE63} = {8C980B20-2A38-4E57-AA3A-0E708B896E31}
+		{696FA11C-90FF-47F1-A480-4E4C4659F2B5} = {8C980B20-2A38-4E57-AA3A-0E708B896E31}
+		{610E86C6-6AE6-4E1D-85D0-38B829273A03} = {696FA11C-90FF-47F1-A480-4E4C4659F2B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C8BC0CE-76C8-49AB-B84F-4AD5326EB48B}
