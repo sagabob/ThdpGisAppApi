@@ -17,14 +17,14 @@ namespace TdpGisApi.Application.Tests
 
         private QueryConfigurationMongodbValidator _validator;
 
-        private Mock<IMongodbService> _mockeDbSvc;
+        private Mock<IMongodbService> _mockDbSvc;
 
         [OneTimeSetUp]
         public void Setup()
         {
             _mockLogger = new Mock<ILogger<QueryConfigurationMongodbValidator>>();
-            _mockeDbSvc = new Mock<IMongodbService>();
-            _validator = new QueryConfigurationMongodbValidator(_mockLogger.Object, _mockeDbSvc.Object);
+            _mockDbSvc = new Mock<IMongodbService>();
+            _validator = new QueryConfigurationMongodbValidator(_mockLogger.Object, _mockDbSvc.Object);
         }
 
 
@@ -92,9 +92,9 @@ namespace TdpGisApi.Application.Tests
         {
             var gisAppConfig = CreateGisAppConfig();
 
-            _mockeDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
+            _mockDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
 
-            _mockeDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(DataHelper.CreateBJson());
+            _mockDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(DataHelper.CreateBJson());
 
             gisAppConfig.QueryInstances["test"].QueryField = "fake";
 
@@ -108,9 +108,9 @@ namespace TdpGisApi.Application.Tests
         {
             var gisAppConfig = CreateGisAppConfig();
 
-            _mockeDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
+            _mockDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
 
-            _mockeDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(DataHelper.CreateBJson());
+            _mockDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(DataHelper.CreateBJson());
 
             var result = _validator.ValidateAllQueryConfiguration(gisAppConfig);
 
@@ -120,9 +120,9 @@ namespace TdpGisApi.Application.Tests
         [Test]
         public void ValidateQueryConfigurationTest_not_throw_exception_if_config_correct()
         {
-            _mockeDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
+            _mockDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
 
-            _mockeDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(DataHelper.CreateBJson());
+            _mockDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(DataHelper.CreateBJson());
 
 
             var queryConfig = CreateQueryConfig();
@@ -136,9 +136,9 @@ namespace TdpGisApi.Application.Tests
         [Test]
         public void ValidateQueryConfigurationTest_throw_exception_if_not_proper_document_returns()
         {
-            _mockeDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
+            _mockDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
 
-            _mockeDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(new BsonDocument());
+            _mockDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(new BsonDocument());
 
             var queryConfig = CreateQueryConfig();
 
