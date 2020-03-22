@@ -51,7 +51,7 @@ namespace TdpGisApi.Configuration.Tests
             var placeNameDbSettings = new DataSourceSettings
             {
                 ConnectionString =
-                    "mongodb+srv://myuser:myuser@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
+                    "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
                 Entity = "place_names_test",
                 DatabaseType = SourceType.Mongodb,
                 Database = "ccc_db"
@@ -105,7 +105,7 @@ namespace TdpGisApi.Configuration.Tests
             var parkDbSettings = new DataSourceSettings
             {
                 ConnectionString =
-                    "mongodb+srv://myuser:myuser@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
+                    "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
                 Entity = "parks_test",
                 DatabaseType = SourceType.Mongodb,
                 Database = "ccc_db"
@@ -125,7 +125,7 @@ namespace TdpGisApi.Configuration.Tests
             var stretaddressDbSettings = new DataSourceSettings
             {
                 ConnectionString =
-                    "mongodb+srv://myuser:myuser@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
+                    "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
                 Entity = "street_addresses_test",
                 DatabaseType = SourceType.Mongodb,
                 Database = "ccc_db"
@@ -187,7 +187,7 @@ namespace TdpGisApi.Configuration.Tests
             var ratingunitDbSettings = new DataSourceSettings
             {
                 ConnectionString =
-                    "mongodb+srv://myuser:myuser@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
+                    "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
                 Entity = "ratingunits_test",
                 DatabaseType = SourceType.Mongodb,
                 Database = "ccc_db"
