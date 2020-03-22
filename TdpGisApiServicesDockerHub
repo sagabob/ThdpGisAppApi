@@ -7,14 +7,14 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["TdpGISApp/TdpGisApi.Services/*.*", "TdpGisApi.Services/"]
-COPY ["TdpGISApp/TdpGisApi.Configuration/*.*", "TdpGisApi.Configuration/"]
-COPY ["TdpGISApp/TdpGisApi.Application/*.*", "TdpGisApi.Application/"]
-COPY ["TdpGISApp/TdpGisApi.Infrastructure.Mongodb/*.*", "TdpGisApi.Infrastructure.Mongodb/"]
-COPY ["TdpGISApp/TdpGisApi.Configuration.Mongodb/*.*", "TdpGisApi.Configuration.Mongodb/"]
-RUN dotnet restore "TdpGisApi.Services/TdpGisApi.Services.csproj"
+COPY ["TdpGISApp/TdpGisApi.Services/*.*", "TdpGISApp/TdpGisApi.Services/"]
+COPY ["TdpGISApp/TdpGisApi.Configuration/*.*", "TdpGISApp/TdpGisApi.Configuration/"]
+COPY ["TdpGISApp/TdpGisApi.Application/*.*", "TdpGISApp/TdpGisApi.Application/"]
+COPY ["TdpGISApp/TdpGisApi.Infrastructure.Mongodb/*.*", "TdpGISApp/TdpGisApi.Infrastructure.Mongodb/"]
+COPY ["TdpGISApp/TdpGisApi.Configuration.Mongodb/*.*", "TdpGISApp/TdpGisApi.Configuration.Mongodb/"]
+RUN dotnet restore "TdpGISApp/TdpGisApi.Services/TdpGisApi.Services.csproj"
 COPY . .
-WORKDIR "/src/TdpGisApi.Services"
+WORKDIR "/src/TdpGISApp/TdpGisApi.Services"
 RUN dotnet build "TdpGisApi.Services.csproj" -c Release -o /app/build
 
 FROM build AS publish
