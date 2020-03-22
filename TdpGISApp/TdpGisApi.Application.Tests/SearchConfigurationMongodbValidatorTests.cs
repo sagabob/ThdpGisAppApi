@@ -33,7 +33,7 @@ namespace TdpGisApi.Application.Tests
             var parkDbSettings = new DataSourceSettings
             {
                 ConnectionString =
-                    "mongodb+srv://myuser:myuser@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
+                    "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
                 Entity = "parks_test",
                 DatabaseType = SourceType.Mongodb,
                 Database = "ccc_db"
