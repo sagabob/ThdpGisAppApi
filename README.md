@@ -7,6 +7,7 @@ This WebApi is designed with domain driven development. Here is the highlight of
 * [MediatoR](https://github.com/jbogard/MediatR)
   <br/>Decouple input query object from its handler, and also decouple again the handler to different feature sources. 
 * [Mongodb](https://www.mongodb.com/)
+  <br/>Current use Mongodb to store configuration and feature data.
 * [WebApi HealthCheck](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health)
 * [Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.1)
 
