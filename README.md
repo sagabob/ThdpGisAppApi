@@ -9,47 +9,46 @@ Return a list of query instances configured in the configuration database.
 The query instance provides the name of the instance, database connection string, database type (0 for Mongodb or 1 for MsSQL), queried field and which fields will be returned.
 Here is an example of a query instance for Place Name feature:
 ```
-[
-  {
-    "id": "5e647f2b1a67da2a385eecbd",
-    "name": "QueryPlaceName",
-    "description": "Query PlaceName collection by Name",
-    "queryType": 0,
-    "queryField": "placeName",
-    "mappings": [
-      {
-        "id": 0,
-        "columnType": 0,
-        "propertyName": "placeNameId",
-        "outputName": "Id"
-      },
-      {
-        "id": 1,
-        "columnType": 0,
-        "propertyName": "placeName",
-        "outputName": "placeName"
-      },
-      {
-        "id": 2,
-        "columnType": 0,
-        "propertyName": "locality",
-        "outputName": "locality"
-      },
-      {
-        "id": 3,
-        "columnType": 1,
-        "propertyName": "geometry",
-        "outputName": "geometry"
-      }
-    ],
-    "dbSettings": {
-      "connectionString": "mongodb+srv://myuser:myuser@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
-      "database": "ccc_db",
-      "entity": "place_names_test",
-      "databaseType": 0
+{
+  "id": "5e647f2b1a67da2a385eecbd",
+  "name": "QueryPlaceName",
+  "description": "Query PlaceName collection by Name",
+  "queryType": 0,
+  "queryField": "placeName",
+  "mappings": [
+    {
+      "id": 0,
+      "columnType": 0,
+      "propertyName": "placeNameId",
+      "outputName": "Id"
+    },
+    {
+      "id": 1,
+      "columnType": 0,
+      "propertyName": "placeName",
+      "outputName": "placeName"
+    },
+    {
+      "id": 2,
+      "columnType": 0,
+      "propertyName": "locality",
+      "outputName": "locality"
+    },
+    {
+      "id": 3,
+      "columnType": 1,
+      "propertyName": "geometry",
+      "outputName": "geometry"
     }
+  ],
+  "dbSettings": {
+    "connectionString": "mongodb+srv://myuser:myuser@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
+    "database": "ccc_db",
+    "entity": "place_names_test",
+    "databaseType": 0
   }
-]
+}
+
 ```
 Here is the detail of an instance of the Place Name feature
 ```
@@ -72,4 +71,5 @@ Here is the detail of an instance of the Place Name feature
 <br/>
 
 **2. [get] /api/GisQuery/querybytext/{queryName}/{queriedPhrase}/{pageLimit}</br>**
-Use the query instance information such as query name provided in the first query as input. 
+Use the query instance information such as query name provided in the first query as input. The queriedPhrase is the phrase that you want to search and the pageLimit indicates the number of records we want to get. An example of the Url is /api/gisquery/queryPlaceName/garden/50
+
