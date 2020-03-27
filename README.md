@@ -12,9 +12,9 @@
   <p align="center">
     A Restful Api providing querying services for configured geospatial features
     <br />  
-    <a href="https://github.com/sagabob/ThdpGisAppApi"><strong>Explore the application »</strong></a>
+    <a href="https://github.com/sagabob/ThdpGisAppApi" target="blank"><strong>Explore the application »</strong></a>
     <br />
-    <a href="http://167.71.212.250/index.html">View Demo</a>  
+    <a href="http://167.71.212.250/index.html" arget="blank">View Demo</a>  
   </p>
 </p>
  
