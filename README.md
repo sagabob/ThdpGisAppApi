@@ -12,9 +12,9 @@
   <p align="center">
     A Restful Api providing querying services for configured geospatial features
     <br />  
-    <a href="https://github.com/sagabob/ThdpGisAppApi" target="blank"><strong>Explore the application »</strong></a>
+    <a href="https://github.com/sagabob/ThdpGisAppApi" target="_blank"><strong>Explore the application »</strong></a>
     <br />
-    <a href="http://167.71.212.250/index.html" arget="blank">View Demo</a>  
+    <a href="http://167.71.212.250/index.html" target="_blank">View Demo</a>  
   </p>
 </p>
  
@@ -43,7 +43,7 @@ This WebApi is designed with domain driven development. Here is the highlight of
 * [Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.1)
 
 ## Usage
-The WebAPi currently has 3 main routes. Please have a look at the demo link for more details http://167.71.212.250/index.html.
+The WebAPi currently has 3 main routes. Please have a look at the [demo link](http://167.71.212.250/index.html) for more details .
 
 **1. [get] /api/gisquery/instances</br>**
 Return a list of query instances configured in the configuration database.
