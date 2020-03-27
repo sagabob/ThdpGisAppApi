@@ -7,7 +7,7 @@ The WebAPi currently has 3 main routes. Please have a look at the demo link for 
 
 **1. [get] /api/gisquery/instances</br>**
 Return a list of query instances configured in the configuration database.
-The query instance provides the name of the instance, database connection string, database type (0 for Mongodb or 1 for MsSQL), queried field and which fields will be returned.
+The query instance provides the name of the instance, database connection string, database type (0 for Mongodb or 1 for MsSQL), queried field and output fields.
 Here is an example of a query instance for Place Name feature:
 ```
 {
@@ -71,5 +71,7 @@ Here is the detail of an instance of the Place Name feature
 ```
 
 **2. [get] /api/GisQuery/querybytext/{queryName}/{queriedPhrase}/{pageLimit}</br>**
-Use the query instance information such as query name provided in the first query as input. The queriedPhrase is the phrase that you want to search and the pageLimit indicates the number of records we want to get. An example of the Url is /api/gisquery/queryPlaceName/garden/50
+The {queryName} is the name of the query instance provided in the first route, in this case is queryName. The {queriedPhrase} is the phrase that you want to search and the pageLimit indicates the number of records we want to get. An example of the Url is /api/gisquery/queryPlaceName/garden/50
 
+**3. [get] /api/GisQuery/querybytext/{queryName}/{queriedPhrase}/{pageLimit}/{pageOrder}</br>**
+An extend of the previous one, {pageOrder} is the page number, starts with 1
