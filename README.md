@@ -18,6 +18,9 @@
   </p>
 </p>
  
+## Table of Contents
+
+* [About the Project](#about-the-project)
   
 ## About the project
 A dotnet-core WebApi which provides Restful services on searching geospatial features such as interested points or properties. Currently, querying features by input phrase is implemented. 
