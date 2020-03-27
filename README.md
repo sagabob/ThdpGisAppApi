@@ -3,7 +3,8 @@
 A dotnet-core WebApi which provides Restful services on searching geospatial features such as interested points or properties.
 
 ## Description
-The WebAPi currently has 3 main routes. Please have a look at the demo link for more details http://167.71.212.250/index.html.<br/><br/>  
+The WebAPi currently has 3 main routes. Please have a look at the demo link for more details http://167.71.212.250/index.html.
+
 **1. [get] /api/gisquery/instances</br>**
 Return a list of query instances configured in the configuration database.
 The query instance provides the name of the instance, database connection string, database type (0 for Mongodb or 1 for MsSQL), queried field and which fields will be returned.
@@ -68,7 +69,6 @@ Here is the detail of an instance of the Place Name feature
   }
 }
 ```
-<br/>
 
 **2. [get] /api/GisQuery/querybytext/{queryName}/{queriedPhrase}/{pageLimit}</br>**
 Use the query instance information such as query name provided in the first query as input. The queriedPhrase is the phrase that you want to search and the pageLimit indicates the number of records we want to get. An example of the Url is /api/gisquery/queryPlaceName/garden/50
