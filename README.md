@@ -103,7 +103,10 @@ CD: The docker is deployed to Digital Ocean.
 
 
 ## Contact
-
-Bob Pham - [Linkedin](https://www.linkedin.com/in/bob-pham-93937973/) - bobpham.tdp@gmail.com
+[![LinkedIn][linkedin-shield]][linkedin-url]<br/>
+Bob Pham - bobpham.tdp@gmail.com 
 
 Project Link: [https://github.com/sagabob/ThdpGisAppApi](https://github.com/sagabob/ThdpGisAppApi)
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/bob-pham-93937973/
