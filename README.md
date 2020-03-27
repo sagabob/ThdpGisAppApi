@@ -26,7 +26,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#Prerequisites)
   * [Installation](#Installation)
-* [CI/CD](#ci/cd)
+* [CI/CD](#continuous-development-delivery)
 * [Roadmap](#roadmap)
 * [Contact](#contact)
   
@@ -126,7 +126,7 @@ The current version requires an environment with dotnet-core 3.0. Mongodb is als
 1. Clone the repo
 2. Restore solution
 
-## CI/CD
+## Continuous Development Delivery
 [![Build Status](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_apis/build/status/TdpAGISApp-CI-Master?branchName=master)](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_build/latest?definitionId=29&branchName=master)
 * CI: The solution is built in Azure DevOps and the docker is deployed to Docker Hub private repository.
 * CD: The docker is deployed to Digital Ocean.
