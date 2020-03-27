@@ -80,7 +80,7 @@ Here is the detail of an instance of the Place Name feature
 ```
 
 **2. [get] /api/GisQuery/querybytext/{queryName}/{queriedPhrase}/{pageLimit}</br>**
-The {queryName} is the name of the query instance provided in the first route, in this case is queryName. The {queriedPhrase} is the phrase that you want to search and the pageLimit indicates the number of records we want to get. An example of the Url is /api/gisquery/queryPlaceName/garden/50
+The {queryName} is the name of the query instance provided in the first route, in this case is queryName. The {queriedPhrase} is the phrase that you want to search and the pageLimit indicates the number of records we want to get. An example of the Url is _/api/gisquery/queryPlaceName/garden/50_
 
 **3. [get] /api/GisQuery/querybytext/{queryName}/{queriedPhrase}/{pageLimit}/{pageOrder}</br>**
 An extend of the previous one, {pageOrder} is the page number, starts with 1.
