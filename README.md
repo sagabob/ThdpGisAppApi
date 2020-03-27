@@ -21,11 +21,19 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
+* [Built with](#built-with)
+* [Usage](#usage)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#Prerequisites)
+  * [Installation](#Installation)
+* [CI/CD](#ci/cd)
+* [Roadmap](#roadmap)
+* [Contact](#contact)
   
 ## About the project
 A dotnet-core WebApi which provides Restful services on searching geospatial features such as interested points or properties. Currently, querying features by input phrase is implemented. 
 
-## Build With
+## Built With
 This WebApi is designed with domain driven development. Here is the highlight of design patterns and frameworks used in the application 
 * [MediatoR](https://github.com/jbogard/MediatR)
   <br/>Decouple input query object from its handler, and also decouple again the handler to different feature sources. 
@@ -123,7 +131,12 @@ The current version requires an environment with dotnet-core 3.0. Mongodb is als
 * CI: The solution is built in Azure DevOps and the docker is deployed to Docker Hub private repository.
 * CD: The docker is deployed to Digital Ocean.
 
-### Roadmap
+## Roadmap
+The application will be extended with the following features
+* Query features by coordinates (input long & lat)
+* Add Kubernete
+* Add front-end in React or Angular that consumes the services
+* Add authentication/authorization and grows into a micro-services
 
 
 ## Contact
