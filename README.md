@@ -1,6 +1,26 @@
-# ThdpGisAppApi
-## Introduction
-A dotnet-core WebApi which provides Restful services on searching geospatial features such as interested points or properties.
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="#">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Tdp GIS API</h3>
+
+  <p align="center">
+    A Restful Api providing querying services for configured geospatial features
+    <br />  
+    <a href="https://github.com/sagabob/ThdpGisAppApi"><strong>Explore the application »</strong></a>
+    <br />
+    <a href="http://167.71.212.250/index.html">View Demo</a>  
+  </p>
+</p>
+ 
+  
+## About the project
+A dotnet-core WebApi which provides Restful services on searching geospatial features such as interested points or properties. Currently, querying features by input phrase is implemented. 
 
 ## Build With
 This WebApi is designed with domain driven development. Here is the highlight of design patterns and frameworks used in the application 
