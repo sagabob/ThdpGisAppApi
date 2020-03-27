@@ -16,7 +16,7 @@ The WebAPi currently has 3 main routes. Please have a look at the demo link for 
 
 **1. [get] /api/gisquery/instances</br>**
 Return a list of query instances configured in the configuration database.
-The query instance provides the name of the instance, database connection string, database type (0 for Mongodb or 1 for MsSQL), queried field and output fields.
+The query instance provides the name of the instance, database connection string, database type (0 for Mongodb), queried field and output fields.
 Here is an example of a query instance for Place Name feature:
 ```
 {
@@ -86,4 +86,24 @@ The {queryName} is the name of the query instance provided in the first route, i
 An extend of the previous one, {pageOrder} is the page number, starts with 1.
 
 
+## Getting Started
+### Prerequisites
+The current version requires an environment with dotnet-core 3.0. Mongodb is also necessary. 
 
+### Installation
+
+1. Clone the repo
+2. Restore solution
+
+## CI/CD
+CI: The solution is built in Azure DevOps and the docker is deployed to Docker Hub private repository.
+CD: The docker is deployed to Digital Ocean.
+
+### Roadmap
+
+
+## Contact
+
+Bob Pham - [Linkedin](https://www.linkedin.com/in/bob-pham-93937973/) - bobpham.tdp@gmail.com
+
+Project Link: [https://github.com/sagabob/ThdpGisAppApi](https://github.com/sagabob/ThdpGisAppApi)
