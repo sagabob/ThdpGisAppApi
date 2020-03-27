@@ -52,7 +52,7 @@ Here is an example of a query instance for Place Name feature:
     }
   ],
   "dbSettings": {
-    "connectionString": "mongodb+srv://myuser:myuser@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
+    "connectionString": "mongodb+srv://xxx:xxx@mongodb/xxxdb?retryWrites=true&w=majority",
     "database": "ccc_db",
     "entity": "place_names_test",
     "databaseType": 0
