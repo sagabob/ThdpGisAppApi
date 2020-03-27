@@ -3,7 +3,7 @@
 A dotnet-core WebApi which provides Restful services on searching geospatial features such as interested points or properties.
 
 ## Description
-The WebAPi currently has 3 main routes. Please have a look at the demo link for more details http://167.71.212.250/index.html.<br/> 
+The WebAPi currently has 3 main routes. Please have a look at the demo link for more details http://167.71.212.250/index.html.<br/><br/>  
 **1. [get] /api/gisquery/instances</br>**
 Return a list of query instances configured in the configuration database.
 The query instance provides the name of the instance, database connection string, database type (0 for Mongodb or 1 for MsSQL), queried field and which fields will be returned.
