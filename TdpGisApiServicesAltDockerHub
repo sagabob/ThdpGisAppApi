@@ -5,6 +5,13 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-COPY . .
+FROM base AS copylayer
+WORKDIR /temp
+COPY TdpGisApi.Services.zip .
+RUN unzip TdpGisApi.Services.zip -d /temp/publish
+RUN rm TdpGisApi.Services.zip
 
+FROM base AS final
+WORKDIR /app
+COPY --from=copylayer /temp/publish .
 ENTRYPOINT ["dotnet", "TdpGisApi.Services.dll"]
