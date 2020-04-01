@@ -143,8 +143,7 @@ The application will be extended with the following features
 
 ## Contact
 [![LinkedIn][linkedin-shield]][linkedin-url]<br/>
-Bob Pham - bobpham.tdp@gmail.com 
-
+Bob Pham - bobpham.tdp@gmail.com
 Project Link: [https://github.com/sagabob/ThdpGisAppApi](https://github.com/sagabob/ThdpGisAppApi)
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
