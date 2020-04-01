@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TdpGisApi", "TdpGisApi", "{8C980B20-2A38-4E57-AA3A-0E708B896E31}"
+	ProjectSection(SolutionItems) = preProject
+		ProjectInformationUpdate.ps1 = ProjectInformationUpdate.ps1
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Configuration", "TdpGisApi.Configuration\TdpGisApi.Configuration.csproj", "{2745513B-0EB2-450D-93FF-E5BABE8556FF}"
 EndProject
@@ -19,9 +22,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SeedData", "SeedData", "{69
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Configuration.Mongodb.SeedData", "TdpGisApi.Configuration.Mongodb.SeedData\TdpGisApi.Configuration.Mongodb.SeedData.csproj", "{610E86C6-6AE6-4E1D-85D0-38B829273A03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdpGisApi.Configuration.Tests", "TdpGisApi.Configuration.Tests\TdpGisApi.Configuration.Tests.csproj", "{7C175B5E-D602-4224-9A46-291A597BC5A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Configuration.Tests", "TdpGisApi.Configuration.Tests\TdpGisApi.Configuration.Tests.csproj", "{7C175B5E-D602-4224-9A46-291A597BC5A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdpGisApi.Application.Tests", "TdpGisApi.Application.Tests\TdpGisApi.Application.Tests.csproj", "{A1C80269-6917-4402-8BF6-60E09E0EF736}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpGisApi.Application.Tests", "TdpGisApi.Application.Tests\TdpGisApi.Application.Tests.csproj", "{A1C80269-6917-4402-8BF6-60E09E0EF736}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FABC36C9-2896-46CC-AFB1-DB9906BE5FB6}"
 EndProject
