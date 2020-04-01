@@ -5,6 +5,7 @@ using System;
 using System.Threading.Tasks;
 using TdpGisApi.Application.QuerySvc.Message;
 using TdpGisApi.Configuration.Model;
+using TdpGisApi.Services.Utility;
 
 namespace TdpGisApi.Services.Controllers
 {
@@ -15,17 +16,21 @@ namespace TdpGisApi.Services.Controllers
         private readonly GisAppConfig _appConfigInstance;
         private readonly ILogger _logger;
         private readonly IMediator _mediator;
-
+        private readonly VersionInformation _versionInformation;
+       
         /// <summary>
+        /// 
         /// </summary>
         /// <param name="mediator"></param>
         /// <param name="appConfigInstance"></param>
+        /// <param name="versionInformation"></param>
         /// <param name="logger"></param>
-        public GisQueryController(IMediator mediator, GisAppConfig appConfigInstance,
+        public GisQueryController(IMediator mediator, GisAppConfig appConfigInstance, VersionInformation versionInformation,
             ILogger<GisQueryController> logger)
         {
             _mediator = mediator;
             _appConfigInstance = appConfigInstance;
+            _versionInformation = versionInformation;
             _logger = logger;
         }
 
@@ -33,7 +38,7 @@ namespace TdpGisApi.Services.Controllers
         [HttpGet("info")]
         public IActionResult GetQueryConfig()
         {
-            return Ok("QueryController");
+            return Ok(_versionInformation);
         }
 
         [HttpGet]

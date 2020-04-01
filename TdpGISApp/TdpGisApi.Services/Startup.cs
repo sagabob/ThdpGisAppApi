@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TdpGisApi.Application.Extensions;
-using TdpGisApi.Configuration.Mongodb.Mapping;
+using TdpGisApi.Services.Utility;
 
 namespace TdpGisApi.Services
 {
@@ -24,7 +24,7 @@ namespace TdpGisApi.Services
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
-      
+
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
@@ -37,20 +37,19 @@ namespace TdpGisApi.Services
 
             services.LoadApplicationConfiguration(Configuration, "GISServiceConfiguration");
 
+            services.LoadVersionInformation(Configuration, "VersionInformation");
+
             services.AddAppConfigHealthCheck("Application Configuration Data Health Check");
 
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GIS APIs", Version = "v1" });
-            });
+            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "GIS APIs", Version = "v1"}); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
-            
+
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
