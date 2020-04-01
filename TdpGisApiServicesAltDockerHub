@@ -5,7 +5,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-COPY . .
+COPY TdpGisApi.Services/*.* .
 
 
 ENTRYPOINT ["dotnet", "TdpGisApi.Services.dll"]
