@@ -15,6 +15,7 @@ namespace TdpGisApi.Services.Utility
             var outputVersionInformation = VersionUtility.GetVersion(versionInformation);
 
             services.AddSingleton(outputVersionInformation);
+
             return services;
         }
     }

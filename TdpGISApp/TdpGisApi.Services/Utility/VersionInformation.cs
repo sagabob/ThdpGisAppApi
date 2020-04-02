@@ -5,8 +5,6 @@ namespace TdpGisApi.Services.Utility
 {
     public class VersionInformation
     {
-        public string SourceBranchName { get; set; }
-
         public string BuiltTag { get; set; }
 
         public string Version { get; set; }
