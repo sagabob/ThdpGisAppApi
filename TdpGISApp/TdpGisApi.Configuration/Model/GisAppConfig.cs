@@ -38,6 +38,23 @@ namespace TdpGisApi.Configuration.Model
             return queryConfigs;
         }
 
+        public List<QueryConfigDTO> GetQueryConfigDTOs()
+        {
+            var queryConfigs = new List<QueryConfigDTO>();
+
+            queryConfigs.AddRange(QueryInstances.Select(x => new QueryConfigDTO()
+            {
+                Id = x.Value.Id,
+                Name =  x.Value.Name,
+                Description = x.Value.Description,
+                QueryField = x.Value.QueryField,
+                QueryType =  x.Value.QueryType,
+                Mappings = x.Value.Mappings
+            }));
+
+            return queryConfigs;
+        }
+
         public void AddQueryConfigs(List<QueryConfig> queryConfigs)
         {
             queryConfigs.ForEach(x => QueryInstances.Add(x.Name.ToLower(), x));

@@ -6,14 +6,28 @@ $files = Get-ChildItem $Env:BUILD_SOURCESDIRECTORY -Recurse -Include appsettings
 
 $TagHolder = "Unknown-BuiltTag"
 
-Write-Output "Number of files: $files.Length"
+$KeyHolder = "--key--"
+
+$KeyValue = "$(ConnectionKey)"
+
 
 foreach ($file in $files) {
     
     $filecontent = Get-Content($file)
    
-    $filecontent -replace $TagHolder, $Env:BUILD_BUILDNUMBER | Out-File $file
-    Write-Output "$file.FullName - version information applied"
+    $filecontent -replace $TagHolder, $Env:BUILD_BUILDNUMBER | Out-File $file     
+
+    Write-Output "$file.FullName - Built Tag is updated"
 }
+
+foreach ($file in $files) {
+    
+    $filecontent = Get-Content($file)
+     
+    $filecontent -replace $KeyHolder, $KeyValue | Out-File $file
+
+    Write-Output "$file.FullName - Update the key $KeyValue"
+}
+
 
 
