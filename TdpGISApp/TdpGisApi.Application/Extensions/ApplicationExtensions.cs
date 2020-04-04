@@ -30,6 +30,8 @@ namespace TdpGisApi.Application.Extensions
 
             configuration.GetSection(configurationSectionName).Bind(dataSourceSettings);
 
+            var key = configuration["ConnectionDbKey"];
+
             switch (dataSourceSettings.DatabaseType)
             {
                 //Mapping the Config data to fit Mongodb
@@ -39,10 +41,10 @@ namespace TdpGisApi.Application.Extensions
             }
 
             services.AddSingleton(sp =>
-                new AppLoadConfig(dataSourceSettings).AppConfigInstance);
+                new AppLoadConfig(dataSourceSettings, key).AppConfigInstance);
 
             services.AddSingleton<IDataSourceSettings>(dataSourceSettings);
-            
+
             return services;
         }
 
