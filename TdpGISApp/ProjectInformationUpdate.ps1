@@ -20,7 +20,17 @@ foreach ($file in $files) {
 
     $filecontent -replace $KeyHolder, $KeyValue | Out-File $file
 
-    Write-Output "$file.FullName - version information applied"
+    Write-Output "$file.FullName - Built Tag is updated"
 }
+
+foreach ($file in $files) {
+    
+    $filecontent = Get-Content($file)
+     
+    $filecontent -replace $KeyHolder, $KeyValue | Out-File $file
+
+    Write-Output "$file.FullName - Update the key $(KeyValue)"
+}
+
 
 
