@@ -8,6 +8,8 @@ $TagHolder = "Unknown-BuiltTag"
 
 $KeyHolder = "--key--"
 
+$KeyValue = $(ConnectionKey)
+
 Write-Output "Number of files: $files.Length"
 
 foreach ($file in $files) {
@@ -16,7 +18,7 @@ foreach ($file in $files) {
    
     $filecontent -replace $TagHolder, $Env:BUILD_BUILDNUMBER | Out-File $file
 
-    $filecontent -replace $KeyHolder, $(ConnectionKey) | Out-File $file
+    $filecontent -replace $KeyHolder, $KeyValue | Out-File $file
 
     Write-Output "$file.FullName - version information applied"
 }

@@ -32,6 +32,9 @@ namespace TdpGisApi.Application.Extensions
 
             var key = configuration["ConnectionDbKey"];
 
+            //decrypt the connection string for configuration database
+            dataSourceSettings.ConnectionString = SecurityUtility.DecryptString(key, dataSourceSettings.ConnectionString);
+
             switch (dataSourceSettings.DatabaseType)
             {
                 //Mapping the Config data to fit Mongodb
