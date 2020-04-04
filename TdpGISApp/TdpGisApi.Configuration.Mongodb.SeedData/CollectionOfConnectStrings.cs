@@ -14,7 +14,6 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
 
         public string Entity { get; set; }
 
-        public string ApiKey { get; set; }
     }
 
    
