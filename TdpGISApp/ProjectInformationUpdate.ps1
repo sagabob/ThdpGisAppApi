@@ -8,7 +8,7 @@ $TagHolder = "Unknown-BuiltTag"
 
 $KeyHolder = "--key--"
 
-$KeyValue = $(ConnectionKey)
+$KeyValue = $ConnectionKey
 
 Write-Output "Number of files: $files.Length"
 
