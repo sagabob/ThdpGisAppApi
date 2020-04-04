@@ -8,11 +8,21 @@ namespace TdpGisApi.Application.Config
 {
     public class AppBuilderFromMongodb
     {
-        public static List<QueryConfig> BuildConfigApp(IDataSourceSettings dbSettings)
+        public static List<QueryConfig> BuildConfigApp(IDataSourceSettings dbSettings, string key)
         {
             IMongodbContext context = new MongodbContext(dbSettings);
 
-            return context.GetCollection<QueryConfig>(dbSettings.Entity).AsQueryable().ToList();
+            var listOfQueryConfigs = context.GetCollection<QueryConfig>(dbSettings.Entity).AsQueryable().ToList();
+
+            return DecryptConnectionStrings(listOfQueryConfigs, key);
+        }
+
+        public static List<QueryConfig> DecryptConnectionStrings(List<QueryConfig> listQueryConfigs, string key)
+        {
+            listQueryConfigs.ForEach(x =>
+                x.DbSettings.ConnectionString = SecurityUtility.DecryptString(key,x.DbSettings.ConnectionString));
+
+            return listQueryConfigs;
         }
     }
 }

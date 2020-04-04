@@ -81,13 +81,7 @@ Here is an example of a query instance for Place Name feature:
       "propertyName": "geometry",
       "outputName": "geometry"
     }
-  ],
-  "dbSettings": {
-    "connectionString": "mongodb+srv://xxx:xxx@mongodb/xxxdb?retryWrites=true&w=majority",
-    "database": "ccc_db",
-    "entity": "place_names_test",
-    "databaseType": 0
-  }
+  ]  
 }
 
 ```
