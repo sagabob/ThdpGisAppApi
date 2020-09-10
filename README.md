@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="https://i.ibb.co/gb2tf3s/Tdp-logo-main.png" alt="Logo" width="360" height="170">
+    <img src="https://i.ibb.co/gb2tf3s/Tdp-logo-main.png" alt="Logo" width="285" height="170">
   </a>
 
   <h3 align="center">Tdp GIS API</h3>
