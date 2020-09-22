@@ -134,7 +134,7 @@ The application will be extended with the following features
 * Add front-end in React or Angular that consumes the services.
 * Add authentication/authorization.
 * Make them into a system of micro-services. 
-* Implement the frontend with better implementation from the old version https://tdp-techground.info/GISReactApp/
+* Implement the frontend with better implementation from the old version https://tdp-techground.info/GISReactApp/ (the site may occasionally not offline due to  machine gets turned off for saving budget) 
 
 ## Contact
 [![LinkedIn][linkedin-shield]][linkedin-url]<br/>
