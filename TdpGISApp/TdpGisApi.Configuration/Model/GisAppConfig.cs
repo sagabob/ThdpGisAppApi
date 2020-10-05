@@ -38,11 +38,11 @@ namespace TdpGisApi.Configuration.Model
             return queryConfigs;
         }
 
-        public List<QueryConfigDTO> GetQueryConfigDTOs()
+        public List<QueryConfigDto> GetQueryConfigDtos()
         {
-            var queryConfigs = new List<QueryConfigDTO>();
+            var queryConfigs = new List<QueryConfigDto>();
 
-            queryConfigs.AddRange(QueryInstances.Select(x => new QueryConfigDTO()
+            queryConfigs.AddRange(QueryInstances.Select(x => new QueryConfigDto()
             {
                 Id = x.Value.Id,
                 Name =  x.Value.Name,

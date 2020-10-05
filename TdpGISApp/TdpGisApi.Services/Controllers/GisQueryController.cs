@@ -45,7 +45,7 @@ namespace TdpGisApi.Services.Controllers
         [Route("instances")]
         public IActionResult Instances()
         {
-            return Ok(_appConfigInstance.GetQueryConfigDTOs());
+            return Ok(_appConfigInstance.GetQueryConfigDtos());
         }
 
         [HttpGet("querybytext/{queryName}/{queriedPhrase}/{pageLimit:int=50}", Name = "QueryByText")]
