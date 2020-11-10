@@ -51,6 +51,7 @@ namespace TdpGisApi.Application.QuerySvc.DataSvc
             List<PropertyOutput> maps, IOutputMapping outputMapping)
         {
             var bsonList = QueryText(queriedField, queriedText, pageLimit, pageSkip);
+
             var jObjects = new List<JObject>();
 
             bsonList.ForEach(x => jObjects.Add(outputMapping.ConvertFromBson(x, maps)));

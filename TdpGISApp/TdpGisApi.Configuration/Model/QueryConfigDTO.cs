@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TdpGisApi.Configuration.Model
 {
-    public class QueryConfigDTO
+    public class QueryConfigDto
     {
         public string Id { get; set; }
 
