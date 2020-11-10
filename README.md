@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="https://i.ibb.co/qmhtHPg/Tdp-logo.png" alt="Logo" width="360" height="147">
+    <img src="https://i.ibb.co/gb2tf3s/Tdp-logo-main.png" alt="Logo" width="285" height="170">
   </a>
 
   <h2 align="center">Tdp GIS API</h2>
@@ -122,7 +122,7 @@ The current version requires an environment with dotnet-core 3.0. Mongodb is als
 
 ## Continuous Development Delivery
 * For CI: The solution is built and the docker is deployed to Docker Hub private repository.<br/>
-[![Build Status](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_apis/build/status/TdpAGISApp-CI-Master?branchName=master)](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_build/latest?definitionId=29&branchName=master)
+[![Build Status](https://dev.azure.com/bobpham-tdp-saga/BDD%20Explore/_apis/build/status/sagabob.GeoSpatialDataTypeConvertingService?branchName=master)](https://dev.azure.com/bobpham-tdp-saga/BDD%20Explore/_build/latest?definitionId=40&branchName=master)
 * For CD: The docker is then deployed to Digital Ocean Linux VM.<br/>
 [![Deployment Status](https://vsrm.dev.azure.com/bobpham-tdp-saga/_apis/public/Release/badge/a01d75dd-db1b-4bf9-8906-14b01aedad54/3/3)](https://vsrm.dev.azure.com/bobpham-tdp-saga/_apis/public/Release/badge/a01d75dd-db1b-4bf9-8906-14b01aedad54/3/3)
 
@@ -134,6 +134,7 @@ The application will be extended with the following features
 * Add front-end in React or Angular that consumes the services.
 * Add authentication/authorization.
 * Make them into a system of micro-services. 
+* Implement the frontend with better implementation from the old version https://tdp-techground.info/GISReactApp/ (the site may occasionally offline due to  machine gets turned off for saving budget) 
 
 ## Contact
 [![LinkedIn][linkedin-shield]][linkedin-url]<br/>
