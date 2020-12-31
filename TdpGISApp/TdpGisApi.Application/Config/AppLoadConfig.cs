@@ -31,6 +31,8 @@ namespace TdpGisApi.Application.Config
                     break;
                 case SourceType.MsSql:
                     throw new NotImplementedException("Getting Query Data Configuration from MsSQL is not implemented");
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }
