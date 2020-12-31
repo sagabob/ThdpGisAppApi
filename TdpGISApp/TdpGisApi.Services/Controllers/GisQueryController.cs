@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using System;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Threading.Tasks;
 using TdpGisApi.Application.QuerySvc.Message;
 using TdpGisApi.Configuration.Model;
 using TdpGisApi.Services.Utility;
@@ -17,15 +17,15 @@ namespace TdpGisApi.Services.Controllers
         private readonly ILogger _logger;
         private readonly IMediator _mediator;
         private readonly VersionInformation _versionInformation;
-       
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="mediator"></param>
         /// <param name="appConfigInstance"></param>
         /// <param name="versionInformation"></param>
         /// <param name="logger"></param>
-        public GisQueryController(IMediator mediator, GisAppConfig appConfigInstance, VersionInformation versionInformation,
+        public GisQueryController(IMediator mediator, GisAppConfig appConfigInstance,
+            VersionInformation versionInformation,
             ILogger<GisQueryController> logger)
         {
             _mediator = mediator;
@@ -67,11 +67,12 @@ namespace TdpGisApi.Services.Controllers
 
             var result = await _mediator.Send(requestMsg);
 
-            return result != null ? (IActionResult)Ok(result) : BadRequest();
+            return result != null ? (IActionResult) Ok(result) : BadRequest();
         }
 
 
-        [HttpGet("querybytextwithpaging/{queryName}/{queriedPhrase}/{pageLimit}/{pageOrder}", Name = "QueryByTextWithPaging")]
+        [HttpGet("querybytextwithpaging/{queryName}/{queriedPhrase}/{pageLimit}/{pageOrder}",
+            Name = "QueryByTextWithPaging")]
         public async Task<IActionResult> QueryByTextWithPaging(string queryName, string queriedPhrase, int pageLimit,
             int pageOrder)
         {
@@ -94,9 +95,7 @@ namespace TdpGisApi.Services.Controllers
 
             var result = await _mediator.Send(requestMsg);
 
-            return result != null ? (IActionResult)Ok(result) : BadRequest();
+            return result != null ? (IActionResult) Ok(result) : BadRequest();
         }
-
-
     }
 }

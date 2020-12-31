@@ -20,7 +20,7 @@ namespace TdpGisApi.Application.Config
         public static List<QueryConfig> DecryptConnectionStrings(List<QueryConfig> listQueryConfigs, string key)
         {
             listQueryConfigs.ForEach(x =>
-                x.DbSettings.ConnectionString = SecurityUtility.DecryptString(key,x.DbSettings.ConnectionString));
+                x.DbSettings.ConnectionString = SecurityUtility.DecryptString(key, x.DbSettings.ConnectionString));
 
             return listQueryConfigs;
         }

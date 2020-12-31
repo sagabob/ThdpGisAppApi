@@ -17,6 +17,7 @@ namespace TdpGisApi.Application.Config
         public GisAppConfig AppConfigInstance { get; set; }
 
         private string Key { get; set; }
+
         private void InitializeConfig()
         {
             AppConfigInstance = new GisAppConfig();

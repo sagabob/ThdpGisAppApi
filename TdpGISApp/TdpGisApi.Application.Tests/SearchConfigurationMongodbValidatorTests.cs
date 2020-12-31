@@ -13,12 +13,6 @@ namespace TdpGisApi.Application.Tests
     [TestFixture]
     public class SearchConfigurationMongodbValidatorTests
     {
-        private Mock<ILogger<QueryConfigurationMongodbValidator>> _mockLogger;
-
-        private QueryConfigurationMongodbValidator _validator;
-
-        private Mock<IMongodbService> _mockDbSvc;
-
         [OneTimeSetUp]
         public void Setup()
         {
@@ -26,6 +20,12 @@ namespace TdpGisApi.Application.Tests
             _mockDbSvc = new Mock<IMongodbService>();
             _validator = new QueryConfigurationMongodbValidator(_mockLogger.Object, _mockDbSvc.Object);
         }
+
+        private Mock<ILogger<QueryConfigurationMongodbValidator>> _mockLogger;
+
+        private QueryConfigurationMongodbValidator _validator;
+
+        private Mock<IMongodbService> _mockDbSvc;
 
 
         public QueryConfig CreateQueryConfig()
