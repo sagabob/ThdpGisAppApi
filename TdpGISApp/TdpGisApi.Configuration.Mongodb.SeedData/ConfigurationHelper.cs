@@ -24,10 +24,12 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
             return connectStringSettings;
         }
 
-        public static CollectionOfConnectStrings EncrpytConnectionString(string key, CollectionOfConnectStrings connectStrings)
+        public static CollectionOfConnectStrings EncrpytConnectionString(string key,
+            CollectionOfConnectStrings connectStrings)
         {
-            connectStrings.ReadOnlyConnectionString = SecurityUtility.EncryptString(key, connectStrings.ReadOnlyConnectionString);
-           
+            connectStrings.ReadOnlyConnectionString =
+                SecurityUtility.EncryptString(key, connectStrings.ReadOnlyConnectionString);
+
             return connectStrings;
         }
     }
