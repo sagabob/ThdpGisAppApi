@@ -28,7 +28,5 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
 
             collection.InsertMany(SeedData.GetConfigurationData(collectionOfConnectStrings));
         }
-
-
     }
 }

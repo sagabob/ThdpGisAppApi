@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,7 +34,8 @@ namespace TdpGisApi.Application.Extensions
             var key = configuration["ConnectionDbKey"];
 
             //decrypt the connection string for configuration database
-            dataSourceSettings.ConnectionString = SecurityUtility.DecryptString(key, dataSourceSettings.ConnectionString);
+            dataSourceSettings.ConnectionString =
+                SecurityUtility.DecryptString(key, dataSourceSettings.ConnectionString);
 
             switch (dataSourceSettings.DatabaseType)
             {
@@ -41,6 +43,10 @@ namespace TdpGisApi.Application.Extensions
                 case SourceType.Mongodb:
                     ConfigMongodbClassMapping.Mapping();
                     break;
+                case SourceType.MsSql:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             services.AddSingleton(sp =>

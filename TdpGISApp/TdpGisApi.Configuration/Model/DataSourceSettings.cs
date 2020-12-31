@@ -18,6 +18,5 @@ namespace TdpGisApi.Configuration.Model
     {
         Mongodb,
         MsSql
-        
     }
 }

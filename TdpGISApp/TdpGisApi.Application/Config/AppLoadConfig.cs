@@ -17,6 +17,7 @@ namespace TdpGisApi.Application.Config
         public GisAppConfig AppConfigInstance { get; set; }
 
         private string Key { get; set; }
+
         private void InitializeConfig()
         {
             AppConfigInstance = new GisAppConfig();
@@ -30,6 +31,8 @@ namespace TdpGisApi.Application.Config
                     break;
                 case SourceType.MsSql:
                     throw new NotImplementedException("Getting Query Data Configuration from MsSQL is not implemented");
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

@@ -18,7 +18,7 @@ namespace TdpGisApi.Services.Utility
     {
         public static VersionInformation GetVersion(VersionInformation versionInfo)
         {
-            versionInfo.Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            versionInfo.Version = Assembly.GetExecutingAssembly().GetName().Version?.ToString();
             versionInfo.FileVersion =
                 FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
             versionInfo.ProductVersion =

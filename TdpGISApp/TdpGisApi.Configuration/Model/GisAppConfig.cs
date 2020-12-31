@@ -42,13 +42,13 @@ namespace TdpGisApi.Configuration.Model
         {
             var queryConfigs = new List<QueryConfigDto>();
 
-            queryConfigs.AddRange(QueryInstances.Select(x => new QueryConfigDto()
+            queryConfigs.AddRange(QueryInstances.Select(x => new QueryConfigDto
             {
                 Id = x.Value.Id,
-                Name =  x.Value.Name,
+                Name = x.Value.Name,
                 Description = x.Value.Description,
                 QueryField = x.Value.QueryField,
-                QueryType =  x.Value.QueryType,
+                QueryType = x.Value.QueryType,
                 Mappings = x.Value.Mappings
             }));
 

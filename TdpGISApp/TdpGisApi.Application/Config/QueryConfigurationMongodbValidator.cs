@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using TdpGisApi.Application.QuerySvc.DataSvc;
@@ -107,10 +108,7 @@ namespace TdpGisApi.Application.Config
         /// <returns></returns>
         public bool ValidateQueryField(BsonDocument doc, string queriedField)
         {
-            foreach (var ele in doc.Elements)
-                if (ele.Name == queriedField)
-                    return true;
-            return false;
+            return doc.Elements.Any(ele => ele.Name == queriedField);
         }
     }
 }
