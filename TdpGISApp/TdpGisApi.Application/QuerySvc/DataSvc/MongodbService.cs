@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using TdpGisApi.Application.QuerySvc.Mapping;
 using TdpGisApi.Configuration.Interface;
 using TdpGisApi.Configuration.Model;
@@ -40,9 +40,9 @@ namespace TdpGisApi.Application.QuerySvc.DataSvc
             _logger.LogInformation("Query with parameters {queriedField}, {queriedText}, {pageLimit}, {pageSkip}",
                 queriedField, queriedText, pageLimit, pageSkip);
 
-            var queryExpr = new BsonRegularExpression(new Regex(queriedText, RegexOptions.IgnoreCase));
+            BsonRegularExpression queryExpr = new BsonRegularExpression(new Regex(queriedText, RegexOptions.IgnoreCase));
 
-            var filterByText = Builders<BsonDocument>.Filter.Regex(queriedField, queryExpr);
+            FilterDefinition<BsonDocument> filterByText = Builders<BsonDocument>.Filter.Regex(queriedField, queryExpr);
 
             return MongodbCollection.Find(filterByText).Skip(pageSkip).Limit(pageLimit).ToList();
         }
@@ -50,9 +50,9 @@ namespace TdpGisApi.Application.QuerySvc.DataSvc
         public List<JObject> QueryTextWithMapping(string queriedField, string queriedText, int pageLimit, int pageSkip,
             List<PropertyOutput> maps, IOutputMapping outputMapping)
         {
-            var bsonList = QueryText(queriedField, queriedText, pageLimit, pageSkip);
+            List<BsonDocument> bsonList = QueryText(queriedField, queriedText, pageLimit, pageSkip);
 
-            var jObjects = new List<JObject>();
+            List<JObject> jObjects = new List<JObject>();
 
             bsonList.ForEach(x => jObjects.Add(outputMapping.ConvertFromBson(x, maps)));
 

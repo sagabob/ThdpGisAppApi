@@ -8,17 +8,19 @@ namespace TdpGisApi.Configuration.Mongodb.Mapping
     {
         public static void Mapping()
         {
-            var assembly = Assembly.GetAssembly(typeof(QueryConfigMap));
+            Assembly assembly = Assembly.GetAssembly(typeof(QueryConfigMap));
 
             //get all types that have our MongodbClassMap as their base class
-            var classMaps = assembly
+            System.Collections.Generic.IEnumerable<Type> classMaps = assembly
                 .GetTypes()
                 .Where(t => t.BaseType != null && t.BaseType.IsGenericType &&
                             t.BaseType.GetGenericTypeDefinition() == typeof(MongodbClassMap<>));
 
             //automate the new *ClassMap()
-            foreach (var classMap in classMaps)
+            foreach (Type classMap in classMaps)
+            {
                 Activator.CreateInstance(classMap);
+            }
         }
     }
 }

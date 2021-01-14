@@ -1,7 +1,7 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Concurrent;
 using System.Linq;
-using MediatR;
 using TdpGisApi.Configuration.Model;
 
 namespace TdpGisApi.Application.QuerySvc.Factory
@@ -44,9 +44,11 @@ namespace TdpGisApi.Application.QuerySvc.Factory
                                                 typeof(IRequest<>).GetGenericTypeDefinition()).ToList()
                         .ForEach(typeInterface =>
                         {
-                            var sourceType = type.GetProperty("SourceDbType")?.GetValue(Activator.CreateInstance(type));
+                            object sourceType = type.GetProperty("SourceDbType")?.GetValue(Activator.CreateInstance(type));
                             if (sourceType != null)
-                                ProviderRequests.AddOrUpdate((SourceType) sourceType, type, (key, oldValue) => type);
+                            {
+                                ProviderRequests.AddOrUpdate((SourceType)sourceType, type, (key, oldValue) => type);
+                            }
                         });
                 });
         }

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Reflection;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Reflection;
 using TdpGisApi.Application.Config;
 using TdpGisApi.Application.QuerySvc.DataSvc;
 using TdpGisApi.Application.QuerySvc.Factory;
@@ -27,11 +27,11 @@ namespace TdpGisApi.Application.Extensions
         public static IServiceCollection LoadApplicationConfiguration(this IServiceCollection services,
             IConfiguration configuration, string configurationSectionName)
         {
-            var dataSourceSettings = new DataSourceSettings();
+            DataSourceSettings dataSourceSettings = new DataSourceSettings();
 
             configuration.GetSection(configurationSectionName).Bind(dataSourceSettings);
 
-            var key = configuration["ConnectionDbKey"];
+            string key = configuration["ConnectionDbKey"];
 
             //decrypt the connection string for configuration database
             dataSourceSettings.ConnectionString =

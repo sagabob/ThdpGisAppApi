@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Microsoft.Extensions.Logging;
-using MongoDB.Bson;
 using TdpGisApi.Application.QuerySvc.DataSvc;
 using TdpGisApi.Configuration.Model;
 
@@ -24,14 +24,16 @@ namespace TdpGisApi.Application.Config
         public ValidatingResult ValidateAllQueryConfiguration(GisAppConfig appConfigInstance)
         {
             _logger.LogInformation("Start validating GIS Query Data configuration");
-            var result = new ValidatingResult {Status = true};
-            var stopWatch = new Stopwatch();
+            ValidatingResult result = new ValidatingResult { Status = true };
+            Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
             try
             {
-                foreach (var pairConfig in appConfigInstance.QueryInstances.Values)
+                foreach (QueryConfig pairConfig in appConfigInstance.QueryInstances.Values)
+                {
                     ValidateQueryConfiguration(pairConfig);
+                }
             }
             catch (Exception ex)
             {
@@ -54,7 +56,7 @@ namespace TdpGisApi.Application.Config
         {
             _dbService.Init(queryConfig.DbSettings);
 
-            var isExisted = _dbService.CollectionExists(queryConfig.DbSettings.Entity);
+            bool isExisted = _dbService.CollectionExists(queryConfig.DbSettings.Entity);
 
             if (!isExisted)
             {
@@ -63,7 +65,7 @@ namespace TdpGisApi.Application.Config
             }
 
 
-            var singleDoc = _dbService.GetOneDocument(queryConfig.DbSettings.Entity);
+            BsonDocument singleDoc = _dbService.GetOneDocument(queryConfig.DbSettings.Entity);
 
             if (!ValidateOutputMapping(singleDoc, queryConfig.Mappings))
             {
@@ -88,14 +90,18 @@ namespace TdpGisApi.Application.Config
         /// <returns></returns>
         public bool ValidateOutputMapping(BsonDocument doc, List<PropertyOutput> maps)
         {
-            var counter = maps.Count;
-            foreach (var prop in maps)
-            foreach (var ele in doc.Elements)
-                if (ele.Name == prop.PropertyName)
+            int counter = maps.Count;
+            foreach (PropertyOutput prop in maps)
+            {
+                foreach (BsonElement ele in doc.Elements)
                 {
-                    counter--;
-                    break;
+                    if (ele.Name == prop.PropertyName)
+                    {
+                        counter--;
+                        break;
+                    }
                 }
+            }
 
             return counter == 0;
         }

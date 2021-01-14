@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
+using System.Collections.Generic;
 using TdpGisApi.Configuration.Interface;
 using TdpGisApi.Configuration.Model;
 using TdpGisApi.Infrastructure.Mongodb;
@@ -12,7 +12,7 @@ namespace TdpGisApi.Application.Config
         {
             IMongodbContext context = new MongodbContext(dbSettings);
 
-            var listOfQueryConfigs = context.GetCollection<QueryConfig>(dbSettings.Entity).AsQueryable().ToList();
+            List<QueryConfig> listOfQueryConfigs = context.GetCollection<QueryConfig>(dbSettings.Entity).AsQueryable().ToList();
 
             return DecryptConnectionStrings(listOfQueryConfigs, key);
         }

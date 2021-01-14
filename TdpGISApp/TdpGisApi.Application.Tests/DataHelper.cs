@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
+using System.Collections.Generic;
 using TdpGisApi.Configuration.Model;
 
 namespace TdpGisApi.Application.Tests
@@ -8,13 +8,13 @@ namespace TdpGisApi.Application.Tests
     {
         public static BsonDocument CreateBJson()
         {
-            var bson = new BsonDocument
+            BsonDocument bson = new BsonDocument
             {
                 new BsonElement("placeName", "Christchurch"),
                 new BsonElement("placeNameId", 3)
             };
 
-            var rootGeometry = new BsonArray
+            BsonArray rootGeometry = new BsonArray
             {
                 new BsonDocument
                 {
@@ -37,7 +37,7 @@ namespace TdpGisApi.Application.Tests
 
         public static List<PropertyOutput> Maps()
         {
-            var maps = new List<PropertyOutput>
+            List<PropertyOutput> maps = new List<PropertyOutput>
             {
                 new PropertyOutput
                 {

@@ -7,7 +7,9 @@ namespace TdpGisApi.Configuration.Mongodb.Mapping
         protected MongodbClassMap()
         {
             if (!BsonClassMap.IsClassMapRegistered(typeof(T)))
+            {
                 BsonClassMap.RegisterClassMap<T>(Map);
+            }
         }
 
         public abstract void Map(BsonClassMap<T> cm);
