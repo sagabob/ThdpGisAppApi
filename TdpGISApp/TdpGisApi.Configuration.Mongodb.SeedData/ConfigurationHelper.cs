@@ -1,5 +1,5 @@
-﻿using System.IO;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
+using System.IO;
 using TdpGisApi.Application.Config;
 
 namespace TdpGisApi.Configuration.Mongodb.SeedData
@@ -8,15 +8,15 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
     {
         public static CollectionOfConnectStrings LoadConfiguration()
         {
-            var builder = new ConfigurationBuilder()
+            IConfigurationBuilder builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", true, true);
 
             builder.AddUserSecrets<ConfigurationHelper>();
 
-            var configuration = builder.Build();
+            IConfigurationRoot configuration = builder.Build();
 
-            var connectStringSettings = new CollectionOfConnectStrings();
+            CollectionOfConnectStrings connectStringSettings = new CollectionOfConnectStrings();
             configuration.GetSection("CollectionOfConnectStrings").Bind(connectStringSettings);
 
             EncrpytConnectionString(configuration["ConnectionDbKey"], connectStringSettings);

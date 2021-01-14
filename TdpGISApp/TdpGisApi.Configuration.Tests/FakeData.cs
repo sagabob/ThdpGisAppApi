@@ -7,11 +7,11 @@ namespace TdpGisApi.Configuration.Tests
     {
         public static List<QueryConfig> GetConfigurationData()
         {
-            var queryConfigs = new List<QueryConfig>();
+            List<QueryConfig> queryConfigs = new List<QueryConfig>();
 
-            var placenameOutputs = new List<PropertyOutput>();
+            List<PropertyOutput> placenameOutputs = new List<PropertyOutput>();
 
-            var counter = 0;
+            int counter = 0;
 
             placenameOutputs.Add(new PropertyOutput
             {
@@ -48,7 +48,7 @@ namespace TdpGisApi.Configuration.Tests
                 OutputName = "geometry"
             });
 
-            var placeNameDbSettings = new DataSourceSettings
+            DataSourceSettings placeNameDbSettings = new DataSourceSettings
             {
                 ConnectionString =
                     "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
@@ -68,41 +68,42 @@ namespace TdpGisApi.Configuration.Tests
             });
 
             counter = 0; //reset counter;
-            var parkOutputs = new List<PropertyOutput>();
-
-            parkOutputs.Add(new PropertyOutput
+            List<PropertyOutput> parkOutputs = new List<PropertyOutput>
             {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "parkId",
-                OutputName = "Id"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "parkId",
+                    OutputName = "Id"
+                },
 
-            parkOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "parkName",
-                OutputName = "parkName"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "parkName",
+                    OutputName = "parkName"
+                },
 
-            parkOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "parkTypeDescription",
-                OutputName = "parkType"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "parkTypeDescription",
+                    OutputName = "parkType"
+                },
 
-            parkOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Object,
-                PropertyName = "geometry",
-                OutputName = "geometry"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Object,
+                    PropertyName = "geometry",
+                    OutputName = "geometry"
+                }
+            };
 
-            var parkDbSettings = new DataSourceSettings
+            DataSourceSettings parkDbSettings = new DataSourceSettings
             {
                 ConnectionString =
                     "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
@@ -122,7 +123,7 @@ namespace TdpGisApi.Configuration.Tests
             });
 
 
-            var stretaddressDbSettings = new DataSourceSettings
+            DataSourceSettings stretaddressDbSettings = new DataSourceSettings
             {
                 ConnectionString =
                     "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
@@ -132,47 +133,48 @@ namespace TdpGisApi.Configuration.Tests
             };
 
             counter = 0; //reset counter;
-            var streetaddressOutputs = new List<PropertyOutput>();
-
-            streetaddressOutputs.Add(new PropertyOutput
+            List<PropertyOutput> streetaddressOutputs = new List<PropertyOutput>
             {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "streetAddressId",
-                OutputName = "Id"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "streetAddressId",
+                    OutputName = "Id"
+                },
 
-            streetaddressOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "streetAddress",
-                OutputName = "streetAddress"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "streetAddress",
+                    OutputName = "streetAddress"
+                },
 
-            streetaddressOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "localityName",
-                OutputName = "locality"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "localityName",
+                    OutputName = "locality"
+                },
 
-            streetaddressOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "occupationLevelDescription",
-                OutputName = "occupationLevel"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "occupationLevelDescription",
+                    OutputName = "occupationLevel"
+                },
 
-            streetaddressOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Object,
-                PropertyName = "geometry",
-                OutputName = "geometry"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Object,
+                    PropertyName = "geometry",
+                    OutputName = "geometry"
+                }
+            };
 
             queryConfigs.Add(new QueryConfig
             {
@@ -184,7 +186,7 @@ namespace TdpGisApi.Configuration.Tests
                 DbSettings = stretaddressDbSettings
             });
 
-            var ratingunitDbSettings = new DataSourceSettings
+            DataSourceSettings ratingunitDbSettings = new DataSourceSettings
             {
                 ConnectionString =
                     "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
@@ -194,48 +196,48 @@ namespace TdpGisApi.Configuration.Tests
             };
 
             counter = 0; //reset counter;
-            var ratingunitOutputs = new List<PropertyOutput>();
-
-
-            ratingunitOutputs.Add(new PropertyOutput
+            List<PropertyOutput> ratingunitOutputs = new List<PropertyOutput>
             {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "ratingUnitId",
-                OutputName = "Id"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "ratingUnitId",
+                    OutputName = "Id"
+                },
 
-            ratingunitOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "streetAddress",
-                OutputName = "streetAddress"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "streetAddress",
+                    OutputName = "streetAddress"
+                },
 
-            ratingunitOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "localityName",
-                OutputName = "locality"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "localityName",
+                    OutputName = "locality"
+                },
 
-            ratingunitOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Normal,
-                PropertyName = "occupationLevelDescription",
-                OutputName = "occupationLevel"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Normal,
+                    PropertyName = "occupationLevelDescription",
+                    OutputName = "occupationLevel"
+                },
 
-            ratingunitOutputs.Add(new PropertyOutput
-            {
-                Id = counter++,
-                ColumnType = PropertyType.Object,
-                PropertyName = "geometry",
-                OutputName = "geometry"
-            });
+                new PropertyOutput
+                {
+                    Id = counter++,
+                    ColumnType = PropertyType.Object,
+                    PropertyName = "geometry",
+                    OutputName = "geometry"
+                }
+            };
 
             queryConfigs.Add(new QueryConfig
             {

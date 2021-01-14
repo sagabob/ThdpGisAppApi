@@ -17,7 +17,8 @@ namespace TdpGisApi.Configuration.Model
         public List<PropertyOutput> Mappings { get; set; }
 
         public DataSourceSettings
-            DbSettings { get; set; } //can't use Interface IDataSourceSettings here -> need to investigate
+            DbSettings
+        { get; set; } //can't use Interface IDataSourceSettings here -> need to investigate
     }
 
     public enum QueryType

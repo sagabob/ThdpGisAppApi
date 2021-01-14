@@ -1,9 +1,9 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using Moq;
 using NUnit.Framework;
+using System;
 using TdpGisApi.Application.Config;
 using TdpGisApi.Application.QuerySvc.DataSvc;
 using TdpGisApi.Configuration.Model;
@@ -30,7 +30,7 @@ namespace TdpGisApi.Application.Tests
 
         public QueryConfig CreateQueryConfig()
         {
-            var parkDbSettings = new DataSourceSettings
+            DataSourceSettings parkDbSettings = new DataSourceSettings
             {
                 ConnectionString =
                     "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
@@ -39,7 +39,7 @@ namespace TdpGisApi.Application.Tests
                 Database = "ccc_db"
             };
 
-            var queryConfig = new QueryConfig
+            QueryConfig queryConfig = new QueryConfig
             {
                 Mappings = DataHelper.Maps(),
                 DbSettings = parkDbSettings,
@@ -51,7 +51,7 @@ namespace TdpGisApi.Application.Tests
 
         public GisAppConfig CreateGisAppConfig()
         {
-            var gisAppConfig = new GisAppConfig();
+            GisAppConfig gisAppConfig = new GisAppConfig();
             gisAppConfig.QueryInstances.Add("test", CreateQueryConfig());
 
             return gisAppConfig;
@@ -65,9 +65,9 @@ namespace TdpGisApi.Application.Tests
             bool expectedResult)
         {
             //Arrange
-            var bson = DataHelper.CreateBJson();
+            BsonDocument bson = DataHelper.CreateBJson();
             //Act
-            var validatedResult = _validator.ValidateQueryField(bson, queriedField);
+            bool validatedResult = _validator.ValidateQueryField(bson, queriedField);
             //Assert
             validatedResult.Should().Be(expectedResult);
         }
@@ -81,7 +81,7 @@ namespace TdpGisApi.Application.Tests
             bool expectedResult)
         {
             //Arranage
-            var maps = DataHelper.Maps();
+            System.Collections.Generic.List<PropertyOutput> maps = DataHelper.Maps();
             maps[0].PropertyName = inputPropertyName;
 
             _validator.ValidateOutputMapping(DataHelper.CreateBJson(), maps).Should().Be(expectedResult);
@@ -90,7 +90,7 @@ namespace TdpGisApi.Application.Tests
         [Test]
         public void ValidateAllQueryConfigurationTest_return_false_if_there_is_exception()
         {
-            var gisAppConfig = CreateGisAppConfig();
+            GisAppConfig gisAppConfig = CreateGisAppConfig();
 
             _mockDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
 
@@ -98,7 +98,7 @@ namespace TdpGisApi.Application.Tests
 
             gisAppConfig.QueryInstances["test"].QueryField = "fake";
 
-            var result = _validator.ValidateAllQueryConfiguration(gisAppConfig);
+            ValidatingResult result = _validator.ValidateAllQueryConfiguration(gisAppConfig);
 
             result.Status.Should().Be(false);
         }
@@ -106,13 +106,13 @@ namespace TdpGisApi.Application.Tests
         [Test]
         public void ValidateAllQueryConfigurationTest_return_true_if_there_is_no_exception()
         {
-            var gisAppConfig = CreateGisAppConfig();
+            GisAppConfig gisAppConfig = CreateGisAppConfig();
 
             _mockDbSvc.Setup(x => x.CollectionExists(It.IsAny<string>())).Returns(true);
 
             _mockDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(DataHelper.CreateBJson());
 
-            var result = _validator.ValidateAllQueryConfiguration(gisAppConfig);
+            ValidatingResult result = _validator.ValidateAllQueryConfiguration(gisAppConfig);
 
             result.Status.Should().Be(true);
         }
@@ -125,7 +125,7 @@ namespace TdpGisApi.Application.Tests
             _mockDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(DataHelper.CreateBJson());
 
 
-            var queryConfig = CreateQueryConfig();
+            QueryConfig queryConfig = CreateQueryConfig();
 
             Action test = () => _validator.ValidateQueryConfiguration(queryConfig);
 
@@ -140,7 +140,7 @@ namespace TdpGisApi.Application.Tests
 
             _mockDbSvc.Setup(x => x.GetOneDocument(It.IsAny<string>())).Returns(new BsonDocument());
 
-            var queryConfig = CreateQueryConfig();
+            QueryConfig queryConfig = CreateQueryConfig();
 
             Action test = () => _validator.ValidateQueryConfiguration(queryConfig);
 

@@ -1,6 +1,6 @@
-﻿using System;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using System;
 using TdpGisApi.Configuration.Interface;
 
 namespace TdpGisApi.Infrastructure.Mongodb
@@ -29,7 +29,9 @@ namespace TdpGisApi.Infrastructure.Mongodb
                 if (_database == null)
                 {
                     if (CurrentDataSourceSettings == null)
+                    {
                         throw new ArgumentException("No valid data connection configuration");
+                    }
 
                     Init();
                 }
@@ -45,8 +47,8 @@ namespace TdpGisApi.Infrastructure.Mongodb
 
         public bool CollectionExists(string collectionName)
         {
-            var filter = new BsonDocument("name", collectionName);
-            var options = new ListCollectionNamesOptions {Filter = filter};
+            BsonDocument filter = new BsonDocument("name", collectionName);
+            ListCollectionNamesOptions options = new ListCollectionNamesOptions { Filter = filter };
 
             return Database.ListCollectionNames(options).Any();
         }
@@ -54,7 +56,9 @@ namespace TdpGisApi.Infrastructure.Mongodb
         public IMongoCollection<TDocument> GetCollection<TDocument>(string collectionName)
         {
             if (CollectionExists(collectionName))
+            {
                 return Database.GetCollection<TDocument>(collectionName);
+            }
 
             return null; //possible throw exception
         }
@@ -63,14 +67,16 @@ namespace TdpGisApi.Infrastructure.Mongodb
         public IMongoCollection<BsonDocument> GetBasicCollection<BsonDocument>(string collectionName)
         {
             if (CollectionExists(collectionName))
+            {
                 return Database.GetCollection<BsonDocument>(collectionName);
+            }
 
             throw new ArgumentException($"Input collection name {collectionName} doesn't exist in database");
         }
 
         public void Init()
         {
-            var mongdbSettings = MongoClientSettings.FromUrl(new MongoUrl(CurrentDataSourceSettings.ConnectionString));
+            MongoClientSettings mongdbSettings = MongoClientSettings.FromUrl(new MongoUrl(CurrentDataSourceSettings.ConnectionString));
             _client = new MongoClient(mongdbSettings);
             _database = _client.GetDatabase(CurrentDataSourceSettings.Database);
         }

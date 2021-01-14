@@ -9,22 +9,22 @@ namespace TdpGisApi.Application.Config
     {
         public static string EncryptString(string key, string plainText)
         {
-            var iv = new byte[16];
+            byte[] iv = new byte[16];
             byte[] array;
 
-            using (var aes = Aes.Create())
+            using (Aes aes = Aes.Create())
             {
                 aes.Key = Encoding.UTF8.GetBytes(key);
                 aes.IV = iv;
 
-                var encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
-                using (var memoryStream = new MemoryStream())
+                using (MemoryStream memoryStream = new MemoryStream())
                 {
-                    using (var cryptoStream =
+                    using (CryptoStream cryptoStream =
                         new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
                     {
-                        using (var streamWriter = new StreamWriter(cryptoStream))
+                        using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
                         {
                             streamWriter.Write(plainText);
                         }
@@ -39,21 +39,21 @@ namespace TdpGisApi.Application.Config
 
         public static string DecryptString(string key, string cipherText)
         {
-            var iv = new byte[16];
-            var buffer = Convert.FromBase64String(cipherText);
+            byte[] iv = new byte[16];
+            byte[] buffer = Convert.FromBase64String(cipherText);
 
-            using (var aes = Aes.Create())
+            using (Aes aes = Aes.Create())
             {
                 aes.Key = Encoding.UTF8.GetBytes(key);
                 aes.IV = iv;
-                var decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
-                using (var memoryStream = new MemoryStream(buffer))
+                using (MemoryStream memoryStream = new MemoryStream(buffer))
                 {
-                    using (var cryptoStream =
+                    using (CryptoStream cryptoStream =
                         new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
                     {
-                        using (var streamReader = new StreamReader(cryptoStream))
+                        using (StreamReader streamReader = new StreamReader(cryptoStream))
                         {
                             return streamReader.ReadToEnd();
                         }

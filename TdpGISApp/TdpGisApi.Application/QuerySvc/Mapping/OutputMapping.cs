@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
 using TdpGisApi.Configuration.Model;
 
 namespace TdpGisApi.Application.QuerySvc.Mapping
@@ -18,7 +18,7 @@ namespace TdpGisApi.Application.QuerySvc.Mapping
 
         public List<JObject> MappingQueryResult(List<BsonDocument> queryResult, List<PropertyOutput> maps)
         {
-            var jObjects = new List<JObject>();
+            List<JObject> jObjects = new List<JObject>();
             queryResult.ForEach(x => { jObjects.Add(ConvertFromBson(x, maps)); });
 
             return jObjects;
@@ -26,10 +26,11 @@ namespace TdpGisApi.Application.QuerySvc.Mapping
 
         public JObject ConvertFromBson(BsonDocument doc, List<PropertyOutput> maps)
         {
-            var jo = new JObject();
+            JObject jo = new JObject();
             try
             {
-                foreach (var prop in maps)
+                foreach (PropertyOutput prop in maps)
+                {
                     switch (prop.ColumnType)
                     {
                         case PropertyType.Normal:
@@ -38,10 +39,11 @@ namespace TdpGisApi.Application.QuerySvc.Mapping
 
                         case PropertyType.Object:
                             //work around the problem due to JObject parse BsonDocument ToJson function
-                            var currentElement = JObject.Parse(doc.GetElement(prop.PropertyName).ToJson());
-                            jo.Add(prop.OutputName, (JObject) currentElement["Value"]);
+                            JObject currentElement = JObject.Parse(doc.GetElement(prop.PropertyName).ToJson());
+                            jo.Add(prop.OutputName, (JObject)currentElement["Value"]);
                             break;
                     }
+                }
             }
             catch (Exception ex)
             {

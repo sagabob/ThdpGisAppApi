@@ -23,7 +23,7 @@ namespace TdpGisApi.Configuration.Tests
             _gisAppConfig.AddQueryConfigs(FakeData.GetConfigurationData());
 
             //act
-            var config = _gisAppConfig.GetQueryInstance(queryName);
+            QueryConfig config = _gisAppConfig.GetQueryInstance(queryName);
 
             //assert
             if (!expectedResult)
