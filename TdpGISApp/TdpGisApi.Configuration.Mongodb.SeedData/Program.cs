@@ -9,7 +9,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
         {
             Console.WriteLine("Seeding configuration data!");
 
-            //mapping mongo
+            //mapping mongodb
             ConfigMongodbClassMapping.Mapping();
 
             Seeds.BuildConfiguration();

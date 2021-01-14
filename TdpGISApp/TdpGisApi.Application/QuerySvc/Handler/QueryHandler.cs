@@ -1,9 +1,9 @@
-﻿using MediatR;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 using TdpGisApi.Application.QuerySvc.Factory;
 using TdpGisApi.Application.QuerySvc.Message;
 
@@ -26,11 +26,11 @@ namespace TdpGisApi.Application.QuerySvc.Handler
         {
             _logger.LogInformation("Start getting the matched handler", request);
 
-            Type targetType = _queryRegister.Get(request.QueriedInstance.DbSettings.DatabaseType);
+            var targetType = _queryRegister.Get(request.QueriedInstance.DbSettings.DatabaseType);
 
-            object targetRequest = Activator.CreateInstance(targetType, request);
+            var targetRequest = Activator.CreateInstance(targetType, request);
 
-            ResponseMsg<JObject> result = await _mediator.Send((IRequest<ResponseMsg<JObject>>)targetRequest, cancellationToken);
+            var result = await _mediator.Send((IRequest<ResponseMsg<JObject>>) targetRequest, cancellationToken);
 
             return result;
         }

@@ -16,7 +16,7 @@ namespace TdpGisApi.Application.Config
         public IDataSourceSettings DbSettings { get; set; }
         public GisAppConfig AppConfigInstance { get; set; }
 
-        private string Key { get; set; }
+        private string Key { get; }
 
         private void InitializeConfig()
         {

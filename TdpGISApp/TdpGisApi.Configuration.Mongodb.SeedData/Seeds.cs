@@ -9,7 +9,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
     {
         public static void BuildConfiguration()
         {
-            CollectionOfConnectStrings collectionOfConnectStrings = ConfigurationHelper.LoadConfiguration();
+            var collectionOfConnectStrings = ConfigurationHelper.LoadConfiguration();
             IDataSourceSettings settings = new DataSourceSettings
             {
                 ConnectionString =
@@ -18,11 +18,11 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
                 Entity = collectionOfConnectStrings.Entity
             };
 
-            string collectionName = collectionOfConnectStrings.Entity;
+            var collectionName = collectionOfConnectStrings.Entity;
 
             IMongodbContext context = new MongodbContext(settings);
 
-            MongoDB.Driver.IMongoCollection<QueryConfig> collection = context.GetCollection<QueryConfig>(collectionName);
+            var collection = context.GetCollection<QueryConfig>(collectionName);
 
             collection.DeleteMany(new BsonDocument()); //delete all
 
