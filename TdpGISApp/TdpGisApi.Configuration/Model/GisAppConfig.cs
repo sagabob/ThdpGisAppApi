@@ -24,23 +24,23 @@ namespace TdpGisApi.Configuration.Model
 
         public QueryConfig GetQueryInstance(string queryName)
         {
-            QueryInstances.TryGetValue(queryName.ToLower(), out QueryConfig inst);
+            QueryInstances.TryGetValue(queryName.ToLower(), out var inst);
 
             return inst;
         }
 
         public List<QueryConfig> GetQueryConfigs()
         {
-            List<QueryConfig> queryConfigs = new List<QueryConfig>();
+            var queryConfigs = new List<QueryConfig>();
 
             queryConfigs.AddRange(QueryInstances.Select(x => x.Value));
 
             return queryConfigs;
         }
 
-        public List<QueryConfigDto> GetQueryConfigDtos()
+        public List<QueryConfigDto> GetQueryConfigDto()
         {
-            List<QueryConfigDto> queryConfigs = new List<QueryConfigDto>();
+            var queryConfigs = new List<QueryConfigDto>();
 
             queryConfigs.AddRange(QueryInstances.Select(x => new QueryConfigDto
             {

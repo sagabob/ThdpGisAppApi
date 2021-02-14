@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using TdpGisApi.Configuration.Model;
 
 namespace TdpGisApi.Application.Config
@@ -19,12 +19,9 @@ namespace TdpGisApi.Application.Config
         public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context,
             CancellationToken cancellationToken = default)
         {
-            ValidatingResult result = SearchConfigureValidator.ValidateAllQueryConfiguration(AppConfigInstance);
+            var result = SearchConfigureValidator.ValidateAllQueryConfiguration(AppConfigInstance);
 
-            if (result.Status)
-            {
-                return Task.FromResult(HealthCheckResult.Healthy());
-            }
+            if (result.Status) return Task.FromResult(HealthCheckResult.Healthy());
 
             return Task.FromResult(new HealthCheckResult(context.Registration.FailureStatus,
                 exception: result.OutputException));

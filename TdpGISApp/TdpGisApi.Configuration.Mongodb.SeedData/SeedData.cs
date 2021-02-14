@@ -7,10 +7,10 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
     {
         public static List<QueryConfig> GetConfigurationData(CollectionOfConnectStrings connectionsettings)
         {
-            List<QueryConfig> queryConfigs = new List<QueryConfig>();
+            var queryConfigs = new List<QueryConfig>();
 
-            int counter = 0;
-            List<PropertyOutput> placenameOutputs = new List<PropertyOutput>
+            var counter = 0;
+            var placenameOutputs = new List<PropertyOutput>
             {
                 new PropertyOutput
                 {
@@ -43,7 +43,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
             };
 
 
-            DataSourceSettings placeNameDbSettings = new DataSourceSettings
+            var placeNameDbSettings = new DataSourceSettings
             {
                 ConnectionString = connectionsettings.ReadOnlyConnectionString,
                 Entity = "place_names_test",
@@ -62,7 +62,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
             });
 
             counter = 0; //reset counter;
-            List<PropertyOutput> parkOutputs = new List<PropertyOutput>
+            var parkOutputs = new List<PropertyOutput>
             {
                 new PropertyOutput
                 {
@@ -97,7 +97,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
                 }
             };
 
-            DataSourceSettings parkDbSettings = new DataSourceSettings
+            var parkDbSettings = new DataSourceSettings
             {
                 ConnectionString = connectionsettings.ReadOnlyConnectionString,
                 Entity = "parks_test",
@@ -116,7 +116,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
             });
 
 
-            DataSourceSettings stretaddressDbSettings = new DataSourceSettings
+            var streetAddressDbSettings = new DataSourceSettings
             {
                 ConnectionString = connectionsettings.ReadOnlyConnectionString,
                 Entity = "street_addresses_test",
@@ -125,7 +125,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
             };
 
             counter = 0; //reset counter;
-            List<PropertyOutput> streetaddressOutputs = new List<PropertyOutput>
+            var streetAddressOutputs = new List<PropertyOutput>
             {
                 new PropertyOutput
                 {
@@ -174,11 +174,11 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
                 Description = "Query StreetAddress collection by Name",
                 QueryType = QueryType.Text,
                 QueryField = "streetAddress",
-                Mappings = streetaddressOutputs,
-                DbSettings = stretaddressDbSettings
+                Mappings = streetAddressOutputs,
+                DbSettings = streetAddressDbSettings
             });
 
-            DataSourceSettings ratingunitDbSettings = new DataSourceSettings
+            var ratingunitDbSettings = new DataSourceSettings
             {
                 ConnectionString = connectionsettings.ReadOnlyConnectionString,
                 Entity = "ratingunits_test",
@@ -187,7 +187,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
             };
 
             counter = 0; //reset counter;
-            List<PropertyOutput> ratingunitOutputs = new List<PropertyOutput>
+            var ratingunitOutputs = new List<PropertyOutput>
             {
                 new PropertyOutput
                 {
