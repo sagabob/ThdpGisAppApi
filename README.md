@@ -122,7 +122,7 @@ The current version requires an environment with dotnet-core 3.0. Mongodb is als
 
 ## Continuous Development Delivery
 * For CI: The solution is built and the docker is deployed to Docker Hub private repository.<br/>
-[![Build Status](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_apis/build/status/TdpAGISApp-CI-Master?branchName=master)](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_build/latest?definitionId=29&branchName=master)
+[![Build Status](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_apis/build/status/TdpAGISApp-CI-Master?branchName=master)](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_apis/build/status/TdpAGISApp-CI-Master?branchName=master)
 * For CD: The docker is then deployed to Digital Ocean Linux VM.<br/>
 [![Deployment Status](https://vsrm.dev.azure.com/bobpham-tdp-saga/_apis/public/Release/badge/a01d75dd-db1b-4bf9-8906-14b01aedad54/3/3)](https://vsrm.dev.azure.com/bobpham-tdp-saga/_apis/public/Release/badge/a01d75dd-db1b-4bf9-8906-14b01aedad54/3/3)
 
