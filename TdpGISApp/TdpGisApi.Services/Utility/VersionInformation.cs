@@ -6,11 +6,8 @@ namespace TdpGisApi.Services.Utility
     public class VersionInformation
     {
         public string BuiltTag { get; set; }
-
         public string Version { get; set; }
-
         public string FileVersion { get; set; }
-
         public string ProductVersion { get; set; }
     }
 

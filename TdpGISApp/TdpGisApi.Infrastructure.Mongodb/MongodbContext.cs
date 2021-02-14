@@ -1,6 +1,6 @@
-﻿using MongoDB.Bson;
+﻿using System;
+using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
 using TdpGisApi.Configuration.Interface;
 
 namespace TdpGisApi.Infrastructure.Mongodb
@@ -9,10 +9,6 @@ namespace TdpGisApi.Infrastructure.Mongodb
     {
         private IMongoClient _client;
         private IMongoDatabase _database;
-
-        public MongodbContext()
-        {
-        }
 
         public MongodbContext(IDataSourceSettings settings)
         {
@@ -26,15 +22,11 @@ namespace TdpGisApi.Infrastructure.Mongodb
         {
             get
             {
-                if (_database == null)
-                {
-                    if (CurrentDataSourceSettings == null)
-                    {
-                        throw new ArgumentException("No valid data connection configuration");
-                    }
+                if (_database != null) return _database;
+                if (CurrentDataSourceSettings == null)
+                    throw new ArgumentException("No valid data connection configuration");
 
-                    Init();
-                }
+                Init();
 
                 return _database;
             }
@@ -47,18 +39,15 @@ namespace TdpGisApi.Infrastructure.Mongodb
 
         public bool CollectionExists(string collectionName)
         {
-            BsonDocument filter = new BsonDocument("name", collectionName);
-            ListCollectionNamesOptions options = new ListCollectionNamesOptions { Filter = filter };
+            var filter = new BsonDocument("name", collectionName);
+            var options = new ListCollectionNamesOptions {Filter = filter};
 
             return Database.ListCollectionNames(options).Any();
         }
 
         public IMongoCollection<TDocument> GetCollection<TDocument>(string collectionName)
         {
-            if (CollectionExists(collectionName))
-            {
-                return Database.GetCollection<TDocument>(collectionName);
-            }
+            if (CollectionExists(collectionName)) return Database.GetCollection<TDocument>(collectionName);
 
             return null; //possible throw exception
         }
@@ -66,18 +55,15 @@ namespace TdpGisApi.Infrastructure.Mongodb
 
         public IMongoCollection<BsonDocument> GetBasicCollection<BsonDocument>(string collectionName)
         {
-            if (CollectionExists(collectionName))
-            {
-                return Database.GetCollection<BsonDocument>(collectionName);
-            }
+            if (CollectionExists(collectionName)) return Database.GetCollection<BsonDocument>(collectionName);
 
             throw new ArgumentException($"Input collection name {collectionName} doesn't exist in database");
         }
 
         public void Init()
         {
-            MongoClientSettings mongdbSettings = MongoClientSettings.FromUrl(new MongoUrl(CurrentDataSourceSettings.ConnectionString));
-            _client = new MongoClient(mongdbSettings);
+            var mongodbSettings = MongoClientSettings.FromUrl(new MongoUrl(CurrentDataSourceSettings.ConnectionString));
+            _client = new MongoClient(mongodbSettings);
             _database = _client.GetDatabase(CurrentDataSourceSettings.Database);
         }
     }

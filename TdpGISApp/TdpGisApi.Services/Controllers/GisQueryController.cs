@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using System;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Threading.Tasks;
 using TdpGisApi.Application.QuerySvc.Message;
 using TdpGisApi.Configuration.Model;
 using TdpGisApi.Services.Utility;
@@ -45,31 +45,28 @@ namespace TdpGisApi.Services.Controllers
         [Route("instances")]
         public IActionResult Instances()
         {
-            return Ok(_appConfigInstance.GetQueryConfigDtos());
+            return Ok(_appConfigInstance.GetQueryConfigDto());
         }
 
         [HttpGet("querybytext/{queryName}/{queriedPhrase}/{pageLimit:int=50}", Name = "QueryByText")]
         public async Task<IActionResult> QueryByText(string queryName, string queriedPhrase, int pageLimit)
         {
-            QueryConfig queryInst = _appConfigInstance.GetQueryInstance(queryName);
+            var queryInst = _appConfigInstance.GetQueryInstance(queryName);
 
             _logger.LogDebug("SearchByTextCtrl: Found the query {queryName}", queryName);
 
-            if (queryInst == null)
-            {
-                return NotFound();
-            }
+            if (queryInst == null) return NotFound();
 
-            RequestMsg requestMsg = new RequestMsg(queriedPhrase)
+            var requestMsg = new RequestMsg(queriedPhrase)
             {
                 QueriedInstance = queryInst,
                 Limit = pageLimit,
                 Skip = 0
             };
 
-            ResponseMsg<Newtonsoft.Json.Linq.JObject> result = await _mediator.Send(requestMsg);
+            var result = await _mediator.Send(requestMsg);
 
-            return result != null ? (IActionResult)Ok(result) : BadRequest();
+            return result != null ? (IActionResult) Ok(result) : BadRequest();
         }
 
 
@@ -78,7 +75,7 @@ namespace TdpGisApi.Services.Controllers
         public async Task<IActionResult> QueryByTextWithPaging(string queryName, string queriedPhrase, int pageLimit,
             int pageOrder)
         {
-            QueryConfig queryInst = _appConfigInstance.GetQueryInstance(queryName);
+            var queryInst = _appConfigInstance.GetQueryInstance(queryName);
 
             _logger.LogInformation("QueryByTextCtrl: Found the query {queryName}", queryName);
 
@@ -88,16 +85,16 @@ namespace TdpGisApi.Services.Controllers
                 return NotFound();
             }
 
-            RequestMsg requestMsg = new RequestMsg(queriedPhrase)
+            var requestMsg = new RequestMsg(queriedPhrase)
             {
                 QueriedInstance = queryInst,
                 Limit = pageLimit,
                 Skip = Math.Max(pageOrder - 1, 0)
             };
 
-            ResponseMsg<Newtonsoft.Json.Linq.JObject> result = await _mediator.Send(requestMsg);
+            var result = await _mediator.Send(requestMsg);
 
-            return result != null ? (IActionResult)Ok(result) : BadRequest();
+            return result != null ? (IActionResult) Ok(result) : BadRequest();
         }
     }
 }
