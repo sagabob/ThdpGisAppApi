@@ -14,7 +14,7 @@
     <br />  
     <a href="https://github.com/sagabob/ThdpGisAppApi" target="_blank"><strong>Explore the application »</strong></a>
     <br />
-    <a href="http://128.199.254.80/index.html" target="_blank">View Demo</a>  
+    <a href="https://data.tdpapigis.tech/index.html" target="_blank">View Demo</a>  
   </p>
 </p>
  
