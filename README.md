@@ -12,9 +12,7 @@
   <p align="center">
     A Restful Api providing querying services for configured geospatial features
     <br />  
-    <a href="https://github.com/sagabob/ThdpGisAppApi" target="_blank"><strong>Explore the application »</strong></a>
-    <br />
-    <a href="https://data.tdpapigis.tech/index.html" target="_blank">View Demo</a>  
+    <a href="https://data.tdpapigis.tech/index.html" target="_blank"><strong>Explore the application »</strong></a>   
   </p>
 </p>
  
@@ -43,7 +41,7 @@ This WebApi is designed with domain driven development. Here is the highlight of
 * [Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.1)
 
 ## Usage
-The WebAPi currently has 3 main routes. Please have a look at the [demo link](http://128.199.254.80/index.html) for more details .
+The WebAPi currently has 3 main routes. Please have a look at the [demo link](https://data.tdpapigis.tech/index.html) for more details .
 
 **1. [get] /api/gisquery/instances</br>**
 Return a list of query instances configured in the configuration database.
@@ -123,7 +121,7 @@ The current version requires an environment with dotnet-core 3.0. Mongodb is als
 ## Continuous Development Delivery
 * For CI: The solution is built and the docker is deployed to Docker Hub private repository.<br/>
 [![Build Status](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_apis/build/status/TdpAGISApp-CI-Dev?branchName=dev)](https://dev.azure.com/bobpham-tdp-saga/TdpAGISApp/_build/latest?definitionId=35&branchName=dev)
-* For CD: The docker is then deployed to Digital Ocean Linux VM.<br/>
+* For CD: The docker is then deployed as a Digital Ocean App.<br/>
 [![Deployment Status](https://vsrm.dev.azure.com/bobpham-tdp-saga/_apis/public/Release/badge/a01d75dd-db1b-4bf9-8906-14b01aedad54/3/3)](https://vsrm.dev.azure.com/bobpham-tdp-saga/_apis/public/Release/badge/a01d75dd-db1b-4bf9-8906-14b01aedad54/3/3)
 
 
@@ -133,13 +131,13 @@ The application will be extended with the following features
 * Add Kubernete.
 * Add front-end in React or Angular that consumes the services.
 * Add authentication/authorization.
-* Make them into a system of micro-services. 
-* Implement the frontend with better implementation from the old version https://tdp-techground.info/GISReactApp/ (the site may occasionally offline due to  machine gets turned off for saving budget) 
+
+
 
 ## Contact
 [![LinkedIn][linkedin-shield]][linkedin-url]<br/>
 Bob Pham - bobpham.tdp@gmail.com<br/>
-Project Link: [https://github.com/sagabob/ThdpGisAppApi](https://github.com/sagabob/ThdpGisAppApi)
+
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/bob-pham-93937973/
