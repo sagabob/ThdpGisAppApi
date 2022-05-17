@@ -29,6 +29,14 @@ namespace TdpGisApi.Services
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add Cors
+            services.AddCors(o => o.AddPolicy("MyCors", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
             services.AddControllers().AddNewtonsoftJson();
 
             services.AddFeatureDataServices();
@@ -67,6 +75,8 @@ namespace TdpGisApi.Services
 
             app.UseRouting();
 
+            app.UseCors("MyCors");
+
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
 
@@ -77,14 +87,6 @@ namespace TdpGisApi.Services
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
 
-
-            app.UseCors(option =>
-            {
-                option
-                    .AllowAnyHeader()
-                    .AllowAnyOrigin()
-                    .AllowAnyMethod();
-            });
         }
     }
 }
