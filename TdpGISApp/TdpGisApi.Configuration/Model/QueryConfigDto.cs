@@ -15,5 +15,7 @@ namespace TdpGisApi.Configuration.Model
         public string QueryField { get; set; }
 
         public List<PropertyOutput> Mappings { get; set; }
+
+        public GeometryType GeometryType { get; set; }
     }
 }

@@ -5,12 +5,12 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
 {
     public class SeedData
     {
-        public static List<QueryConfig> GetConfigurationData(CollectionOfConnectStrings connectionsettings)
+        public static List<QueryConfig> GetConfigurationData(CollectionOfConnectStrings connectionSettings)
         {
             var queryConfigs = new List<QueryConfig>();
 
             var counter = 0;
-            var placenameOutputs = new List<PropertyOutput>
+            var placeNameOutputs = new List<PropertyOutput>
             {
                 new PropertyOutput
                 {
@@ -35,7 +35,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
                 },
                 new PropertyOutput
                 {
-                    Id = counter++,
+                    Id = counter,
                     ColumnType = PropertyType.Object,
                     PropertyName = "geometry",
                     OutputName = "geometry"
@@ -45,10 +45,10 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
 
             var placeNameDbSettings = new DataSourceSettings
             {
-                ConnectionString = connectionsettings.ReadOnlyConnectionString,
+                ConnectionString = connectionSettings.ReadOnlyConnectionString,
                 Entity = "place_names_test",
                 DatabaseType = SourceType.Mongodb,
-                Database = "ccc_db"
+                Database = "ccc_db",
             };
 
             queryConfigs.Add(new QueryConfig
@@ -57,8 +57,9 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
                 Description = "Query PlaceName collection by Name",
                 QueryType = QueryType.Text,
                 QueryField = "placeName",
-                Mappings = placenameOutputs,
-                DbSettings = placeNameDbSettings
+                Mappings = placeNameOutputs,
+                DbSettings = placeNameDbSettings,
+                GeometryType = GeometryType.MultiPoint
             });
 
             counter = 0; //reset counter;
@@ -90,7 +91,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
 
                 new PropertyOutput
                 {
-                    Id = counter++,
+                    Id = counter,
                     ColumnType = PropertyType.Object,
                     PropertyName = "geometry",
                     OutputName = "geometry"
@@ -99,7 +100,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
 
             var parkDbSettings = new DataSourceSettings
             {
-                ConnectionString = connectionsettings.ReadOnlyConnectionString,
+                ConnectionString = connectionSettings.ReadOnlyConnectionString,
                 Entity = "parks_test",
                 DatabaseType = SourceType.Mongodb,
                 Database = "ccc_db"
@@ -112,13 +113,14 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
                 QueryType = QueryType.Text,
                 QueryField = "parkName",
                 Mappings = parkOutputs,
-                DbSettings = parkDbSettings
+                DbSettings = parkDbSettings,
+                GeometryType = GeometryType.MultiPolygon
             });
 
 
             var streetAddressDbSettings = new DataSourceSettings
             {
-                ConnectionString = connectionsettings.ReadOnlyConnectionString,
+                ConnectionString = connectionSettings.ReadOnlyConnectionString,
                 Entity = "street_addresses_test",
                 DatabaseType = SourceType.Mongodb,
                 Database = "ccc_db"
@@ -161,7 +163,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
 
                 new PropertyOutput
                 {
-                    Id = counter++,
+                    Id = counter,
                     ColumnType = PropertyType.Object,
                     PropertyName = "geometry",
                     OutputName = "geometry"
@@ -175,19 +177,20 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
                 QueryType = QueryType.Text,
                 QueryField = "streetAddress",
                 Mappings = streetAddressOutputs,
-                DbSettings = streetAddressDbSettings
+                DbSettings = streetAddressDbSettings,
+                GeometryType = GeometryType.MultiPoint
             });
 
-            var ratingunitDbSettings = new DataSourceSettings
+            var ratingUnitDbSettings = new DataSourceSettings
             {
-                ConnectionString = connectionsettings.ReadOnlyConnectionString,
-                Entity = "ratingunits_test",
+                ConnectionString = connectionSettings.ReadOnlyConnectionString,
+                Entity = "ratingunits",
                 DatabaseType = SourceType.Mongodb,
                 Database = "ccc_db"
             };
 
             counter = 0; //reset counter;
-            var ratingunitOutputs = new List<PropertyOutput>
+            var ratingUnitOutputs = new List<PropertyOutput>
             {
                 new PropertyOutput
                 {
@@ -223,7 +226,7 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
 
                 new PropertyOutput
                 {
-                    Id = counter++,
+                    Id = counter,
                     ColumnType = PropertyType.Object,
                     PropertyName = "geometry",
                     OutputName = "geometry"
@@ -236,8 +239,9 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
                 Description = "Query RatingUnit collection by Name",
                 QueryType = QueryType.Text,
                 QueryField = "streetAddress",
-                Mappings = ratingunitOutputs,
-                DbSettings = ratingunitDbSettings
+                Mappings = ratingUnitOutputs,
+                DbSettings = ratingUnitDbSettings,
+                GeometryType = GeometryType.MultiPolygon
             });
 
             return queryConfigs;
