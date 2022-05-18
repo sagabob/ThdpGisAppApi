@@ -18,6 +18,8 @@ namespace TdpGisApi.Configuration.Model
 
         public DataSourceSettings
             DbSettings { get; set; } //can't use Interface IDataSourceSettings here -> need to investigate
+        
+        public GeometryType GeometryType { get; set; }
     }
 
     public enum QueryType
@@ -25,6 +27,13 @@ namespace TdpGisApi.Configuration.Model
         Text,
         Spatial
     }
+
+    public enum GeometryType
+    {
+        MultiPoint,
+        MultiPolygon
+    }
+
 
     public enum PropertyType
     {
