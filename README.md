@@ -43,7 +43,7 @@ This WebApi is designed with domain driven development. Here is the highlight of
 * [Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.1)
 
 ## Usage
-The WebAPi currently has 3 main routes. Please have a look at the [api document](https://data.tdpapigis.tech/index.html) for more details. The demo webapp using these Api can be accessed [here](https://webapp.tdpapigis.tech/)
+The WebAPi currently has 3 main routes. Please have a look at the api document https://data.tdpapigis.tech/index.html for more details. The demo webapp using these Api can be accessed here https://webapp.tdpapigis.tech/
 
 **1. [get] /api/gisquery/instances</br>**
 Return a list of query instances configured in the configuration database.
