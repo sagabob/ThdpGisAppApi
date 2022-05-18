@@ -13,6 +13,7 @@
     A Restful Api providing querying services for configured geospatial features
     <br />  
     <a href="https://data.tdpapigis.tech/index.html" target="_blank"><strong>Explore the api »</strong></a>   
+    <br />  
     <a href="https://webapp.tdpapigis.tech/" target="_blank"><strong>Explore the web app using the api »</strong></a>   
   </p>
 </p>
