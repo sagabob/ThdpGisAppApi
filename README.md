@@ -130,8 +130,7 @@ The current version requires an environment with dotnet-core 3.0. Mongodb is als
 ## Roadmap
 The application will be extended with the following features
 * Query features by coordinates (input long & lat)
-* Add Kubernete.
-* Add front-end in React or Angular that consumes the services.
+* Add Kubernetes.
 * Add authentication/authorization.
 
 
