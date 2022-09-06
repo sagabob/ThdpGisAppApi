@@ -24,7 +24,7 @@ namespace TdpGisApi.Application.QuerySvc.Mapping
             return jObjects;
         }
 
-        public JObject ConvertFromBson(BsonDocument doc, List<PropertyOutput> maps)
+        public JObject  ConvertFromBson(BsonDocument doc, List<PropertyOutput> maps)
         {
             var jo = new JObject();
             try

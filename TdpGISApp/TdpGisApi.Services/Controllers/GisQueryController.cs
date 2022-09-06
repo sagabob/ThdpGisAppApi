@@ -70,10 +70,10 @@ namespace TdpGisApi.Services.Controllers
         }
 
 
-        [HttpGet("querybytextwithpaging/{queryName}/{queriedPhrase}/{pageLimit}/{pageOrder}",
+        [HttpGet("querybytextwithpaging/{queryName}/{queriedPhrase}/{pageLimit:int}/{pageOrder:int}",
             Name = "QueryByTextWithPaging")]
-        public async Task<IActionResult> QueryByTextWithPaging(string queryName, string queriedPhrase, int pageLimit,
-            int pageOrder)
+        public async Task<IActionResult> QueryByTextWithPaging(string queryName, string queriedPhrase, int pageLimit=10,
+            int pageOrder=1)
         {
             var queryInst = _appConfigInstance.GetQueryInstance(queryName);
 

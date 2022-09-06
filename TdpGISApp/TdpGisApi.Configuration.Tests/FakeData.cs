@@ -42,7 +42,7 @@ namespace TdpGisApi.Configuration.Tests
 
             placenameOutputs.Add(new PropertyOutput
             {
-                Id = counter++,
+                Id = counter,
                 ColumnType = PropertyType.Object,
                 PropertyName = "geometry",
                 OutputName = "geometry"
@@ -96,7 +96,7 @@ namespace TdpGisApi.Configuration.Tests
 
                 new PropertyOutput
                 {
-                    Id = counter++,
+                    Id = counter,
                     ColumnType = PropertyType.Object,
                     PropertyName = "geometry",
                     OutputName = "geometry"
@@ -169,7 +169,7 @@ namespace TdpGisApi.Configuration.Tests
 
                 new PropertyOutput
                 {
-                    Id = counter++,
+                    Id = counter,
                     ColumnType = PropertyType.Object,
                     PropertyName = "geometry",
                     OutputName = "geometry"

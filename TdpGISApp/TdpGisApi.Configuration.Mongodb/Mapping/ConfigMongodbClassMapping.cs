@@ -13,7 +13,7 @@ namespace TdpGisApi.Configuration.Mongodb.Mapping
             //get all types that have our MongodbClassMap as their base class
             var classMaps = assembly?
                 .GetTypes()
-                .Where(t => t.BaseType != null && t.BaseType.IsGenericType &&
+                .Where(t => t.BaseType is { IsGenericType: true } &&
                             t.BaseType.GetGenericTypeDefinition() == typeof(MongodbClassMap<>));
 
             //automate the new *ClassMap()
