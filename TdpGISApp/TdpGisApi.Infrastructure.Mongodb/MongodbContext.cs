@@ -53,9 +53,9 @@ namespace TdpGisApi.Infrastructure.Mongodb
         }
 
 
-        public IMongoCollection<BsonDocument> GetBasicCollection<BsonDocument>(string collectionName)
+        public IMongoCollection<TBsonDocument> GetBasicCollection<TBsonDocument>(string collectionName)
         {
-            if (CollectionExists(collectionName)) return Database.GetCollection<BsonDocument>(collectionName);
+            if (CollectionExists(collectionName)) return Database.GetCollection<TBsonDocument>(collectionName);
 
             throw new ArgumentException($"Input collection name {collectionName} doesn't exist in database");
         }
