@@ -19,12 +19,12 @@ namespace TdpGisApi.Configuration.Mongodb.SeedData
             var connectStringSettings = new CollectionOfConnectStrings();
             configuration.GetSection("CollectionOfConnectStrings").Bind(connectStringSettings);
 
-            EncrpytConnectionString(configuration["ConnectionDbKey"], connectStringSettings);
+            EncrpytingConnectionString(configuration["ConnectionDbKey"], connectStringSettings);
 
             return connectStringSettings;
         }
 
-        public static CollectionOfConnectStrings EncrpytConnectionString(string key,
+        private static CollectionOfConnectStrings EncrpytingConnectionString(string key,
             CollectionOfConnectStrings connectStrings)
         {
             connectStrings.ReadOnlyConnectionString =

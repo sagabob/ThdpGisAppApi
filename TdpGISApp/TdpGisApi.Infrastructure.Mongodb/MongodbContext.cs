@@ -47,9 +47,7 @@ namespace TdpGisApi.Infrastructure.Mongodb
 
         public IMongoCollection<TDocument> GetCollection<TDocument>(string collectionName)
         {
-            if (CollectionExists(collectionName)) return Database.GetCollection<TDocument>(collectionName);
-
-            return null; //possible throw exception
+            return CollectionExists(collectionName) ? Database.GetCollection<TDocument>(collectionName) : null; //possible throw exception
         }
 
 

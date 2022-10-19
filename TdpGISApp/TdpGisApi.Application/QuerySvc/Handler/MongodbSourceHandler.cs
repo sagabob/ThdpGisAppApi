@@ -31,6 +31,7 @@ namespace TdpGisApi.Application.QuerySvc.Handler
 
             _logger.LogInformation("Start querying from Mongodb source..", request);
 
+            //Important, connection to Mongodb is re-created with with new connection string
             _service.Init(request.ReqMsg.QueriedInstance.DbSettings);
 
             var queriedResult = _service.QueryTextWithMapping(request.ReqMsg.QueriedInstance.QueryField,

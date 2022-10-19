@@ -31,7 +31,7 @@ namespace TdpGisApi.Application.QuerySvc.Factory
             return ProviderRequests.AddOrUpdate(sourceType, type, (key, oldValue) => type);
         }
 
-        public void ScanAssembliesForClasses()
+        private static void ScanAssembliesForClasses()
         {
             AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(assembly => assembly.GetTypes()

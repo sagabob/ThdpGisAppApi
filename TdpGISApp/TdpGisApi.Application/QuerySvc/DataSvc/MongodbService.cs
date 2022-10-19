@@ -11,6 +11,9 @@ using TdpGisApi.Infrastructure.Mongodb;
 
 namespace TdpGisApi.Application.QuerySvc.DataSvc
 {
+    //TODO
+    //Need to refactorize this class to deal with multiple MongoDb connection
+    
     public class MongodbService : IMongodbService
     {
         private readonly ILogger _logger;
@@ -30,8 +33,8 @@ namespace TdpGisApi.Application.QuerySvc.DataSvc
         public void Init(IDataSourceSettings dbSettings)
         {
             DbSettings = dbSettings;
-            DbContext.CurrentDataSourceSettings = DbSettings;
             DbContext.ClearDatabase();
+            DbContext.CurrentDataSourceSettings = DbSettings;
             MongodbCollection = DbContext.GetBasicCollection<BsonDocument>(DbSettings.Entity);
         }
 
