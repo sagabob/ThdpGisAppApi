@@ -1,60 +1,59 @@
-﻿using MongoDB.Bson;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using MongoDB.Bson;
 using TdpGisApi.Configuration.Model;
 
-namespace TdpGisApi.Application.Tests
+namespace TdpGisApi.Application.Tests;
+
+public class DataHelper
 {
-    public class DataHelper
+    public static BsonDocument CreateBJson()
     {
-        public static BsonDocument CreateBJson()
+        var bson = new BsonDocument
         {
-            BsonDocument bson = new BsonDocument
-            {
-                new BsonElement("placeName", "Christchurch"),
-                new BsonElement("placeNameId", 3)
-            };
+            new BsonElement("placeName", "Christchurch"),
+            new BsonElement("placeNameId", 3)
+        };
 
-            BsonArray rootGeometry = new BsonArray
+        var rootGeometry = new BsonArray
+        {
+            new BsonDocument
             {
-                new BsonDocument
+                { "type", "Multipoint" },
+
                 {
-                    {"type", "Multipoint"},
-
+                    "coordinates", new BsonArray(new BsonArray
                     {
-                        "coordinates", new BsonArray(new BsonArray
-                        {
-                            173, 43
-                        })
-                    }
+                        173, 43
+                    })
                 }
-            };
+            }
+        };
 
-            bson.Add("geometry", rootGeometry);
+        bson.Add("geometry", rootGeometry);
 
-            return bson;
-        }
+        return bson;
+    }
 
 
-        public static List<PropertyOutput> Maps()
+    public static List<PropertyOutput> Maps()
+    {
+        var maps = new List<PropertyOutput>
         {
-            List<PropertyOutput> maps = new List<PropertyOutput>
+            new()
             {
-                new PropertyOutput
-                {
-                    ColumnType = PropertyType.Normal,
-                    PropertyName = "placeName",
-                    OutputName = "PlaceName"
-                },
+                ColumnType = PropertyType.Normal,
+                PropertyName = "placeName",
+                OutputName = "PlaceName"
+            },
 
-                new PropertyOutput
-                {
-                    ColumnType = PropertyType.Object,
-                    PropertyName = "geometry",
-                    OutputName = "geometry"
-                }
-            };
+            new()
+            {
+                ColumnType = PropertyType.Object,
+                PropertyName = "geometry",
+                OutputName = "geometry"
+            }
+        };
 
-            return maps;
-        }
+        return maps;
     }
 }
