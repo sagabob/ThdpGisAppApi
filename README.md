@@ -12,7 +12,7 @@
   <p align="center">
     A Restful Api providing querying services for configured geospatial features
     <br />  
-    <a href="https://gisapi.tdp-tech.store/index.html" target="_blank"><strong>Explore the api »</strong></a>   
+    <a href="https://gisapi.tdp-store.info/index.html" target="_blank"><strong>Explore the api »</strong></a>   
     <br />  
     <a href="https://giswebapp.tdp-tech.store/" target="_blank"><strong>Explore the web app using the api »</strong></a>   
   </p>
@@ -43,7 +43,7 @@ This WebApi is designed with domain driven development. Here is the highlight of
 * [Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.1)
 
 ## Usage
-The WebAPi currently has 3 main routes. Please have a look at the api document https://gisapi.tdp-tech.store/index.html for more details. The demo webapp using these Api can be accessed here https://giswebapp.tdp-tech.store
+The WebAPi currently has 3 main routes. Please have a look at the api document https://gisapi.tdp-store.info/index.html for more details. The demo webapp using these Api can be accessed here https://giswebapp.tdp-tech.store
 
 **1. [get] /api/gisquery/instances</br>**
 Return a list of query instances configured in the configuration database.
