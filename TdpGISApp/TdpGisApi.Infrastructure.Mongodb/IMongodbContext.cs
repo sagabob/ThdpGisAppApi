@@ -8,7 +8,7 @@ namespace TdpGisApi.Infrastructure.Mongodb
         IMongoDatabase Database { get; }
         IDataSourceSettings CurrentDataSourceSettings { get; set; }
         bool CollectionExists(string collectionName);
-        IMongoCollection<BsonDocument> GetBasicCollection<BsonDocument>(string collectionName);
+        IMongoCollection<TBsonDocument> GetBasicCollection<TBsonDocument>(string collectionName);
         IMongoCollection<TDocument> GetCollection<TDocument>(string collectionName);
         void ClearDatabase();
     }
