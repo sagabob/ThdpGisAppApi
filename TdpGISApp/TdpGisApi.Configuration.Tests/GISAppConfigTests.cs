@@ -2,39 +2,38 @@
 using NUnit.Framework;
 using TdpGisApi.Configuration.Model;
 
-namespace TdpGisApi.Configuration.Tests
+namespace TdpGisApi.Configuration.Tests;
+
+public class GisAppConfigTests
 {
-    public class GisAppConfigTests
+    private GisAppConfig _gisAppConfig;
+
+
+    [SetUp]
+    public void Setup()
     {
-        private GisAppConfig _gisAppConfig;
+        _gisAppConfig = new GisAppConfig();
+    }
 
+    [TestCase("queryPark1", false)]
+    [TestCase("queryPark", true)]
+    public void Test_get_query_config_by_name(string queryName, bool expectedResult)
+    {
+        //arrange
+        _gisAppConfig.AddQueryConfigs(FakeData.GetConfigurationData());
 
-        [SetUp]
-        public void Setup()
+        //act
+        var config = _gisAppConfig.GetQueryInstance(queryName);
+
+        //assert
+        if (!expectedResult)
         {
-            _gisAppConfig = new GisAppConfig();
+            config.Should().BeNull();
         }
-
-        [TestCase("queryPark1", false)]
-        [TestCase("queryPark", true)]
-        public void Test_get_query_config_by_name(string queryName, bool expectedResult)
+        else
         {
-            //arrange
-            _gisAppConfig.AddQueryConfigs(FakeData.GetConfigurationData());
-
-            //act
-            QueryConfig config = _gisAppConfig.GetQueryInstance(queryName);
-
-            //assert
-            if (!expectedResult)
-            {
-                config.Should().BeNull();
-            }
-            else
-            {
-                config.Should().NotBeNull();
-                config.Name.ToLower().Should().Be(queryName.ToLower());
-            }
+            config.Should().NotBeNull();
+            config.Name.ToLower().Should().Be(queryName.ToLower());
         }
     }
 }

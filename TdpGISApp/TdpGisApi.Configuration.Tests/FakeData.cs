@@ -52,7 +52,7 @@ public class FakeData
         {
             ConnectionString =
                 "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
-            Entity = "place_names_test",
+            Entity = "place_names",
             DatabaseType = SourceType.Mongodb,
             Database = "ccc_db"
         };
@@ -107,7 +107,7 @@ public class FakeData
         {
             ConnectionString =
                 "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
-            Entity = "parks_test",
+            Entity = "parks",
             DatabaseType = SourceType.Mongodb,
             Database = "ccc_db"
         };
@@ -127,7 +127,7 @@ public class FakeData
         {
             ConnectionString =
                 "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
-            Entity = "street_addresses_test",
+            Entity = "street_addresses",
             DatabaseType = SourceType.Mongodb,
             Database = "ccc_db"
         };
@@ -186,11 +186,11 @@ public class FakeData
             DbSettings = streetAddressDbSettings
         });
 
-        var ratingunitDbSettings = new DataSourceSettings
+        var ratingUnitDbSettings = new DataSourceSettings
         {
             ConnectionString =
                 "mongodb+srv://dbreader:dbreader@starter-7tvp1.mongodb.net/ccc_db?retryWrites=true&w=majority",
-            Entity = "ratingunits_test",
+            Entity = "ratingunits",
             DatabaseType = SourceType.Mongodb,
             Database = "ccc_db"
         };
@@ -246,7 +246,7 @@ public class FakeData
             QueryType = QueryType.Text,
             QueryField = "streetAddress",
             Mappings = ratingUnitOutputs,
-            DbSettings = ratingunitDbSettings
+            DbSettings = ratingUnitDbSettings
         });
 
         return queryConfigs;

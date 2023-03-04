@@ -12,7 +12,7 @@ using TdpGisApi.Infrastructure.Mongodb;
 namespace TdpGisApi.Application.QuerySvc.DataSvc
 {
     //TODO
-    //Need to refactorize this class to deal with multiple MongoDb connection
+    //Need to refactor this class to deal with multiple Mongodb connection
     
     public class MongodbService : IMongodbService
     {
